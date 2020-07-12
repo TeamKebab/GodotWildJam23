@@ -9,10 +9,25 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Button",
+"class": "BuyButton",
+"language": "GDScript",
+"path": "res://src/gui/BuyButton.gd"
+}, {
+"base": "Area2D",
+"class": "Grid",
+"language": "GDScript",
+"path": "res://src/components/Grid.gd"
+}, {
 "base": "Area2D",
 "class": "HitBox",
 "language": "GDScript",
 "path": "res://src/components/HitBox.gd"
+}, {
+"base": "Node2D",
+"class": "MiniBar",
+"language": "GDScript",
+"path": "res://src/components/MiniBar.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Virus",
@@ -20,7 +35,10 @@ _global_script_classes=[ {
 "path": "res://src/entities/Virus.gd"
 } ]
 _global_script_class_icons={
+"BuyButton": "",
+"Grid": "",
 "HitBox": "",
+"MiniBar": "",
 "Virus": ""
 }
 

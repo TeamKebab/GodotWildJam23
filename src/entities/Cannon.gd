@@ -10,6 +10,8 @@ var target : Area2D
 onready var time_since_last_shoot: float = COOLDOWN
 onready var detection : Area2D = $DetectionBox
 onready var hurtbox : Area2D = $HurtBox
+onready var hpbar : MiniBar = $HP
+
 
 func _ready() -> void:
 	detection.connect("area_entered", self, 
@@ -18,6 +20,8 @@ func _ready() -> void:
 		"_on_detection_area_exited")
 	hurtbox.connect("area_entered", self,
 		"_on_hurtbox_area_entered")
+	hpbar.total = hp
+	hpbar.value = hp
 	
 func _physics_process(delta: float):
 	if target == null:
@@ -44,6 +48,7 @@ func _on_hurtbox_area_entered(hitbox: HitBox) -> void:
 		return
 		
 	hp -= hitbox.damage
+	hpbar.value = hp
 	
 	if hp <= 0:
 		queue_free()
