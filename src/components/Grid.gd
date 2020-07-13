@@ -13,15 +13,17 @@ const HALF_CELL:Vector2 = Vector2(CELL_WIDTH / 2, CELL_HEIGHT / 2)
 const NO_CELL: Vector2 = Vector2(-1,-1)
 
 var selected_cell: Vector2 = NO_CELL
+var size: Vector2 = Vector2.ONE
 
 onready var collision: CollisionShape2D = $CollisionShape2D
-onready var size: Vector2 = collision.get_shape().get_extents()
 
 
 func _ready() -> void:
 	self.connect("input_event", self, "_on_Grid_input_event")
 	self.connect("mouse_exited", self, "_on_Grid_mouse_exited")
-	
+	var world_size = collision.get_shape().get_extents() * 2
+	size = Vector2(floor(world_size.x / CELL_WIDTH),
+		floor(world_size.y / CELL_HEIGHT))
 
 func _on_Grid_input_event(viewport: Viewport, event : InputEvent, shape_idx: int):
 	if event is InputEventMouse:

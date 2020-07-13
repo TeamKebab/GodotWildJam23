@@ -3,7 +3,7 @@ extends Node
 var buying_defense : Area2D = null
 
 onready var button_container : Container = find_node("ButtonContainer")
-onready var defense_container : Node2D = find_parent("Game").find_node("YSort")
+onready var defense_container : Node2D = find_parent("Game").find_node("Defenses")
 onready var grid : Grid = $Grid
 
 
