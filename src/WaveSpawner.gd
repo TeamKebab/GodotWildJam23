@@ -14,7 +14,7 @@ var waves = [
 			"wait": 0.5,
 			"virus":[
 				{
-					"virus": Virus.CUTEVID,
+					"type": Virus.CUTEVID,
 					"row": 0
 				}
 			]
@@ -23,7 +23,7 @@ var waves = [
 			"wait": 5,
 			"virus":[
 				Virus.CUTEVID,
-				Virus.CUTEVID
+				Virus.CUTEVID,
 			]
 		},
 	]
@@ -43,6 +43,7 @@ func _ready() -> void:
 	if not current_wave.empty():
 		timer.start(current_wave[0].wait)
 
+
 func _on_Timer_timeout():
 	var wave = current_wave.pop_front()
 	_spawn_wavelet(wave)
@@ -52,26 +53,28 @@ func _on_Timer_timeout():
 	else:
 		timer.start(current_wave[0].wait)
 
+
 func _spawn_wavelet(wave):
 	assert(wave.virus.size() <= int(grid.size.y))
 	
 	var possible_rows = _get_possible_rows()
 		
-	for i in wave.virus:
-		var virus = -1
-		var row = -1
+	for virus in wave.virus:
+		var virus_type = -1
+		var virus_row = -1
 		
-		if i is int:
-			virus = i	
+		if virus is int:
+			virus_type = virus	
 		else:
-			virus = i.virus
-			if row in i:
-				row = i.row
+			virus_type = virus.type
+			if "row" in virus and virus.row in possible_rows:
+				virus_row = virus.row
+				possible_rows.remove(virus.row)
 		
-		if row < 0 or row >= grid.size.y:
-			row = _get_random(possible_rows)
+		if virus_row < 0 or virus_row >= grid.size.y:
+			virus_row = _get_random(possible_rows)
 		
-		_spawn(virus, row)
+		_spawn(virus_type, virus_row)
 		
 		
 func _spawn(type: int, row: int):
@@ -81,7 +84,6 @@ func _spawn(type: int, row: int):
 
 
 func _get_random(possible_rows: Array) -> int:
-	# TODO: check rows
 	var i = randi() % possible_rows.size()
 	var row = possible_rows[i]
 	possible_rows.remove(i)
@@ -89,4 +91,4 @@ func _get_random(possible_rows: Array) -> int:
 	
 	
 func _get_possible_rows() -> Array:
-	return range(0, int(grid.size.y) - 1)
+	return range(0, int(grid.size.y))
