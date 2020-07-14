@@ -1,7 +1,7 @@
 extends Area2D
 
 
-export var hp : int = 1
+export var hp : float = 1 setget set_hp
 export var duration : int = 30
 
 
@@ -11,30 +11,28 @@ onready var timer : Timer = $Timer
 
 
 func _ready() -> void:
-	hurtbox.connect("area_entered", self,
-		"_on_hurtbox_area_entered")
 	timer.connect("timeout", self, "_on_timer_timeout")
-
 	timer.start(duration)
 	
 
+func set_hp(new_hp) -> void:
+	hp = new_hp
+
+	if hp <= 0:
+		_die()
+		
+		
 func _on_timer_timeout() -> void:
+	Player.heal()
 	#sprite.play("heal")
 	#yield(sprite, "animation_finished")	
 	queue_free()
-	
-	
-func _on_hurtbox_area_entered(hitbox: HitBox) -> void:
-	var virus : Virus = hitbox.owner
-	
-	if virus == null:
-		return
+
+
+func _die():
+	Player.infect()
 		
-	hp -= hitbox.damage
+	#sprite.play("infected")
+	#yield(sprite, "animation_finished")		
+	queue_free()	
 	
-	if hp <= 0:
-		Player.spot_infected = true
-		
-		#sprite.play("infected")
-		#yield(sprite, "animation_finished")		
-		queue_free()

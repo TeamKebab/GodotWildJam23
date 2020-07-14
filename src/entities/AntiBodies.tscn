@@ -7,6 +7,8 @@
 extents = Vector2( 10.9756, 15.5941 )
 
 [node name="AntiBodies" type="Area2D"]
+collision_layer = 16
+collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

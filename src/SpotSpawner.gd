@@ -15,7 +15,7 @@ onready var timer: Timer = $Timer
 
 func _ready() -> void:
 	timer.connect("timeout", self, "_on_Timer_timeout")
-	
+
 	timer.start(rand_range (min_seconds, max_seconds))
 
 
@@ -28,18 +28,18 @@ func _spawn() -> void:
 	var spot = SoreSpot.instance()
 	spot.hide()
 	container.add_child(spot)
-	
+
 	var placed = false
-	
+
 	for i in range(3):
 		var cell = Vector2(randi() % int(grid.size.x), randi() % int(grid.size.y))
 		var position = grid.grid_to_world(cell)
 		spot.global_position = position
-		
+
 		if _can_place(spot):
 			placed = true
 			break
-			
+
 	if placed:
 		spot.show()
 	else:

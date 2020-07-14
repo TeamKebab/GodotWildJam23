@@ -14,38 +14,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/gui/BuyButton.gd"
 }, {
-"base": "KinematicBody2D",
-"class": "Defense",
-"language": "GDScript",
-"path": "res://src/entities/Cannon.gd"
-}, {
 "base": "Area2D",
 "class": "Grid",
 "language": "GDScript",
 "path": "res://src/components/Grid.gd"
 }, {
-"base": "Area2D",
-"class": "HitBox",
-"language": "GDScript",
-"path": "res://src/components/HitBox.gd"
-}, {
 "base": "Node2D",
 "class": "MiniBar",
 "language": "GDScript",
 "path": "res://src/components/MiniBar.gd"
-}, {
-"base": "KinematicBody2D",
-"class": "Virus",
-"language": "GDScript",
-"path": "res://src/entities/Virus.gd"
 } ]
 _global_script_class_icons={
 "BuyButton": "",
-"Defense": "",
 "Grid": "",
-"HitBox": "",
-"MiniBar": "",
-"Virus": ""
+"MiniBar": ""
 }
 
 [application]
@@ -69,8 +51,8 @@ window/stretch/mode="2d"
 
 [layer_names]
 
-2d_physics/layer_1="Virus HurtBoxes"
-2d_physics/layer_2="Defenses HurtBoxes"
+2d_physics/layer_1="Virus HitBoxes"
+2d_physics/layer_2="Defenses HitBoxes"
 2d_physics/layer_3="Virus"
 2d_physics/layer_4="Defenses"
 

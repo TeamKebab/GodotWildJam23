@@ -1,68 +1,101 @@
 extends KinematicBody2D
-class_name Virus
 
 signal destroyed
 
 const AntiBodies = preload("res://src/entities/AntiBodies.tscn")
 
 
-export var max_hp: float = 20
+export var max_hp: float = 2
 export var antibodies_amount = 1
 export var max_velocity = 100
+export var damage: float = 1
+export var cooldown: float = 3
 
 
-var hp: float
+var hp: float = max_hp setget set_hp
 
-var multiplier : float = 1 setget set_multiplier
 var velocity = Vector2.ZERO
 var acceleration = Vector2.RIGHT * 50
 
+var affected_defenses: Array = []
+
 
 onready var antibodies_container : Node2D = find_parent("Game").find_node("AntiBodies")
-onready var hurtbox : Area2D = $HurtBox
-onready var hitbox : HitBox = $HitBox
+onready var hitbox : Area2D = $HitBox
 onready var hpbar : MiniBar = $HP
+onready var timer : Timer = $Timer
 
 
 func _ready():
-	hurtbox.connect("area_entered", self, "_on_hurtbox_area_entered") 
+	hitbox.connect("area_entered", self, "_on_hitbox_area_entered")
+	hitbox.connect("area_exited", self, "_on_hitbox_area_exited")
+	timer.connect("timeout", self, "_on_timer_timeout")
 	
-	hp = max_hp
+	max_hp = max_hp * Player.multiplier
+	hp = hp * Player.multiplier
+	
 	hpbar.total = max_hp
 	hpbar.value = hp
-	
-	
-func set_multiplier(new_multiplier) -> void:
-	hp = hp / multiplier * new_multiplier
-	max_hp = max_hp / multiplier * new_multiplier
-	multiplier = new_multiplier
-	
-	if hpbar != null:
-		hpbar.total = max_hp
-		hpbar.value = hp
 
-	
+
+func set_hp(new_hp) -> void:
+	hp = new_hp
+	hpbar.value = hp
+
+	if hp <= 0:
+		_die()
+
+
 func _physics_process(delta):
 	velocity = (velocity + acceleration * delta).clamped(max_velocity)
-	
-	var collision = move_and_collide(velocity * delta)
-	if collision != null:
-		velocity = Vector2.ZERO
-	
 
-func _on_hurtbox_area_entered(hitbox: HitBox) -> void:
-	if hitbox == null:
+	var collision = move_and_collide(velocity * delta)
+
+
+func _on_hitbox_area_entered(hurtbox: Area2D) -> void:
+	var defense = hurtbox.owner
+
+	if defense == null or not defense.has_method("set_hp"):
 		return
+
+	if not defense in affected_defenses:
+		affected_defenses.append(defense)
 		
-	hp -= hitbox.damage
-	hpbar.value = hp
+	if timer.is_stopped():
+		defense.hp -= damage
+		timer.start(cooldown)
 	
-	if hp <= 0:
-		var antibodies = AntiBodies.instance()
-		antibodies.amount = antibodies_amount
-		antibodies.global_position = global_position
-		antibodies.global_position.y += randi() % 32 - 16
-		antibodies_container.add_child(antibodies)
+	
+func _on_hitbox_area_exited(hurtbox: Area2D) -> void:
+	var defense = hurtbox.owner
+
+	if defense in affected_defenses:
+		affected_defenses.erase(defense)
+	
+	
+func _on_timer_timeout() -> void:
+	var to_remove : Array = []
+	
+	for defense in affected_defenses:
+		if defense == null or defense.hp <= 0:
+			to_remove.append(defense)
+		else:
+			defense.hp -= damage
+	
+	for defense in to_remove:
+		affected_defenses.erase(defense)
 		
-		emit_signal("destroyed", self)
-		queue_free()
+	if not affected_defenses.empty():
+		timer.start(cooldown)
+	
+	
+func _die() -> void:
+	var antibodies = AntiBodies.instance()
+	antibodies.amount = antibodies_amount
+	antibodies.global_position = global_position
+	antibodies.global_position.y += randi() % 32 - 16
+	antibodies_container.add_child(antibodies)
+
+	emit_signal("destroyed", self)
+	queue_free()
+
