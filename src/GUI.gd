@@ -1,6 +1,8 @@
 extends Node
 
+
 var buying_defense : Area2D = null
+
 
 onready var button_container : Container = find_node("ButtonContainer")
 onready var defense_container : Node2D = find_parent("Game").find_node("Defenses")
@@ -37,6 +39,7 @@ func _on_Grid_mouse_input_cell(event, cell):
 			buying_defense = null
 		else:
 			print("cannot place")
+
 
 func _can_place() -> bool:
 	if buying_defense == null:

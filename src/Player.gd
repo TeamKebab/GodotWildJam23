@@ -4,7 +4,8 @@ extends Node
 signal antibodies_changed(new_antibodies)
 
 
-var antibodies: int = 1 setget set_antibodies
+var antibodies: int = 5 setget set_antibodies
+var spot_infected: bool = false
 
 
 func _ready() -> void:

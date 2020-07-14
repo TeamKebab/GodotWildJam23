@@ -21,11 +21,12 @@ var waves = [
 		},
 		{
 			"wait": 5,
+			"times": 20,
 			"virus":[
 				Virus.CUTEVID,
 				Virus.CUTEVID,
 			]
-		},
+		}
 	]
 ]
 
@@ -45,7 +46,13 @@ func _ready() -> void:
 
 
 func _on_Timer_timeout():
-	var wave = current_wave.pop_front()
+	var wave = current_wave[0]
+	
+	if "times" in wave and wave.times > 1:
+		wave.times -= 1
+	else:
+		current_wave.remove(0)
+		
 	_spawn_wavelet(wave)
 	
 	if current_wave.empty():
@@ -79,6 +86,10 @@ func _spawn_wavelet(wave):
 		
 func _spawn(type: int, row: int):
 	var virus = VIRUS[type].instance()
+	
+	if Player.spot_infected:
+		virus.multiplier = 2
+	
 	virus.global_position = grid.grid_to_world(Vector2(0, row))
 	container.add_child(virus)
 

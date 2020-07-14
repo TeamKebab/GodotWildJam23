@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/WaveSpawner.gd" type="Script" id=1]
+[ext_resource path="res://src/SpotSpawner.gd" type="Script" id=2]
 [ext_resource path="res://assets/sprites/nose_placeholder.png" type="Texture" id=3]
 [ext_resource path="res://src/components/Grid.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/gui/AntibodiesCounter.gd" type="Script" id=5]
@@ -22,6 +23,13 @@ __meta__ = {
 [node name="AntiBodies" type="Node2D" parent="."]
 
 [node name="Defenses" type="YSort" parent="."]
+
+[node name="SpotSpawner" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="Spots" type="YSort" parent="SpotSpawner"]
+
+[node name="Timer" type="Timer" parent="SpotSpawner"]
 
 [node name="WaveSpawner" type="Node2D" parent="."]
 script = ExtResource( 1 )

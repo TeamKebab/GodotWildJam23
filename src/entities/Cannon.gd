@@ -4,14 +4,14 @@ const COOLDOWN = 3
 
 const Bullet = preload("res://src/entities/Bullet.tscn")
 
-var hp : int = 2
+var hp : float = 2
 var target : Area2D
 
 onready var time_since_last_shoot: float = COOLDOWN
 onready var detection : Area2D = $DetectionBox
 onready var hurtbox : Area2D = $HurtBox
 onready var hpbar : MiniBar = $HP
-
+onready var sprite : AnimatedSprite = $Sprite
 
 func _ready() -> void:
 	detection.connect("area_entered", self, 
@@ -22,6 +22,7 @@ func _ready() -> void:
 		"_on_hurtbox_area_entered")
 	hpbar.total = hp
 	hpbar.value = hp
+
 	
 func _physics_process(delta: float):
 	if target == null:
@@ -34,6 +35,8 @@ func _shoot_target(delta) -> void:
 	time_since_last_shoot += delta
 	
 	if time_since_last_shoot > COOLDOWN:
+		sprite.play("shot")
+		sprite.frame = 0
 		var bullet = Bullet.instance()
 		
 		bullet.direction = Vector2.LEFT

@@ -1,10 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/components/Placeholder.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/sprites/cannon.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/cannon-animation.png" type="Texture" id=2]
 [ext_resource path="res://src/entities/Cannon.tscn" type="PackedScene" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 384, 0, 128, 64 )
+
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32, 32 )
 
 [node name="Placeholder" instance=ExtResource( 1 )]
@@ -13,7 +17,8 @@ collision_mask = 8
 entity = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="0"]
-texture = ExtResource( 2 )
+position = Vector2( -26, -10 )
+texture = SubResource( 1 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
