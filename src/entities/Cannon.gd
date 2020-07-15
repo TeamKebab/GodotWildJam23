@@ -33,24 +33,24 @@ func set_hp(new_hp) -> void:
 
 
 func _physics_process(delta: float):
-	if target == null:
-		return
-
-	_shoot_target(delta)
-
-
-func _shoot_target(delta) -> void:
 	time_since_last_shoot += delta
-
-	if time_since_last_shoot > COOLDOWN:
-		sprite.play("shot")
-		sprite.frame = 0
-		var bullet = Bullet.instance()
-
-		bullet.direction = Vector2.LEFT
-		self.add_child(bullet)
+	
+	if target != null and time_since_last_shoot > COOLDOWN:		
 		time_since_last_shoot = 0
+		_shoot_target()
 
+
+func _shoot_target() -> void:
+	sprite.play("shot")
+	
+	yield(sprite, "animation_finished")
+	
+	var bullet = Bullet.instance()
+	bullet.position.x = -32
+	bullet.direction = Vector2.LEFT
+	self.add_child(bullet)
+	sprite.play("charge")
+	
 
 func _on_detection_area_entered(area: Area2D) -> void:
 	if target == null:
