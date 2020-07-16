@@ -6,10 +6,11 @@ signal antibodies_changed(new_antibodies)
 
 var antibodies: int = 5 setget set_antibodies
 var multiplier: float = 1
+var rng = RandomNumberGenerator.new()
 
 
 func _ready() -> void:
-	randomize()
+	rng.randomize()
 	
 	
 func set_antibodies(new_antibodies) -> void:

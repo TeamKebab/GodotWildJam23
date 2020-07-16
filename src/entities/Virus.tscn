@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/entities/Virus.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/virus.png" type="Texture" id=2]
@@ -23,13 +23,18 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 24.0
+radius = 18.0
 
 [sub_resource type="CircleShape2D" id=5]
 radius = 24.0
 
 [sub_resource type="CircleShape2D" id=6]
-radius = 30.0
+radius = 24.0
+
+[sub_resource type="Curve2D" id=7]
+_data = {
+"points": PoolVector2Array(  )
+}
 
 [node name="Virus" type="KinematicBody2D"]
 collision_layer = 4
@@ -59,9 +64,13 @@ shape = SubResource( 6 )
 
 [node name="HP" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, 32 )
+half_width = 30
 value = 2.0
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 7 )
 
 [editable path="HurtBox"]
 

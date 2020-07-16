@@ -12,6 +12,7 @@ var waves = [
 	[
 		{
 			"wait": 0.5,
+			"times": 5,
 			"virus":[
 				{
 					"type": Virus.CUTEVID,
@@ -92,7 +93,7 @@ func _spawn(type: int, row: int):
 
 
 func _get_random(possible_rows: Array) -> int:
-	var i = randi() % possible_rows.size()
+	var i = Player.rng.randi() % possible_rows.size()
 	var row = possible_rows[i]
 	possible_rows.remove(i)
 	return row

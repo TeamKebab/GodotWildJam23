@@ -7,18 +7,19 @@ const AntiBodies = preload("res://src/entities/AntiBodies.tscn")
 
 export var max_hp: float = 2
 export var antibodies_amount = 1
-export var max_velocity = 100
 export var damage: float = 1
 export var cooldown: float = 3
-
+export var velocity = 80
+export var freq_min = 1
+export var freq_max = 10
+export var max_vertical_movement = 10
 
 var hp: float = max_hp setget set_hp
 
-var velocity = Vector2.ZERO
-var acceleration = Vector2.RIGHT * 50
-
 var affected_defenses: Array = []
-
+var time: float = 0
+var freq: float = freq_min
+var base_y: float = 0
 
 onready var antibodies_container : Node2D = find_parent("Game").find_node("AntiBodies")
 onready var hitbox : Area2D = $HitBox
@@ -31,13 +32,16 @@ func _ready():
 	hitbox.connect("area_exited", self, "_on_hitbox_area_exited")
 	timer.connect("timeout", self, "_on_timer_timeout")
 	
+	freq = Player.rng.randf_range(freq_min, freq_max)
+	base_y = position.y
+	
 	max_hp = max_hp * Player.multiplier
 	hp = hp * Player.multiplier
 	
 	hpbar.total = max_hp
 	hpbar.value = hp
 
-
+	
 func set_hp(new_hp) -> void:
 	hp = new_hp
 	hpbar.value = hp
@@ -47,9 +51,16 @@ func set_hp(new_hp) -> void:
 
 
 func _physics_process(delta):
-	velocity = (velocity + acceleration * delta).clamped(max_velocity)
-
-	var collision = move_and_collide(velocity * delta)
+	
+	
+	var motion = Vector2(velocity, 0)
+	
+	var collision = move_and_collide(motion * delta)
+	
+	if collision == null:
+		time += delta
+		
+		position.y = base_y + max_vertical_movement * cos(time * freq)
 
 
 func _on_hitbox_area_entered(hurtbox: Area2D) -> void:
