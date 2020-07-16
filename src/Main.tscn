@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/WaveSpawner.gd" type="Script" id=1]
 [ext_resource path="res://src/SpotSpawner.gd" type="Script" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://src/entities/CannonPlaceholder.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/sprites/bg/nose-fondo-down.png" type="Texture" id=9]
 [ext_resource path="res://assets/sprites/bg/nose-fondo-up.png" type="Texture" id=10]
+[ext_resource path="res://src/Defenses.gd" type="Script" id=11]
+[ext_resource path="res://src/AntiBodies.gd" type="Script" id=12]
 
 [node name="Game" type="Node"]
 
@@ -33,8 +35,10 @@ script = ExtResource( 2 )
 [node name="Timer" type="Timer" parent="SpotSpawner"]
 
 [node name="AntiBodies" type="Node2D" parent="."]
+script = ExtResource( 12 )
 
 [node name="Defenses" type="YSort" parent="."]
+script = ExtResource( 11 )
 
 [node name="WaveSpawner" type="Node2D" parent="."]
 script = ExtResource( 1 )
@@ -105,6 +109,41 @@ custom_constants/separation = 5
 
 [node name="BuyButton1" parent="GUI/ToolBar/VBoxContainer/ButtonContainer" instance=ExtResource( 7 )]
 placeholder_type = ExtResource( 8 )
+
+[node name="GameOverPanel" type="PanelContainer" parent="GUI"]
+pause_mode = 2
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/GameOverPanel"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 80.0
+margin_bottom = 45.0
+
+[node name="Label" type="Label" parent="GUI/GameOverPanel/VBoxContainer"]
+margin_right = 73.0
+margin_bottom = 14.0
+text = "Game Over"
+
+[node name="RestartButton" type="Button" parent="GUI/GameOverPanel/VBoxContainer"]
+margin_top = 18.0
+margin_right = 73.0
+margin_bottom = 38.0
+text = "Restart"
 [connection signal="mouse_entered_cell" from="Grid" to="GUI" method="_on_Grid_mouse_entered_cell"]
 [connection signal="mouse_exited_cell" from="Grid" to="GUI" method="_on_Grid_mouse_exited_cell"]
 [connection signal="mouse_input_cell" from="Grid" to="GUI" method="_on_Grid_mouse_input_cell"]
+[connection signal="pressed" from="GUI/GameOverPanel/VBoxContainer/RestartButton" to="GUI" method="_on_RestartButton_pressed"]

@@ -14,8 +14,20 @@ onready var timer: Timer = $Timer
 
 
 func _ready() -> void:
-	timer.connect("timeout", self, "_on_Timer_timeout")
+	timer.connect("timeout", self, "_on_Timer_timeout")		
+	Player.connect("game_over", self, "_on_game_over")
+	Player.connect("restart", self, "_on_restart")
+	
+	timer.start(rand_range (min_seconds, max_seconds))
 
+func _on_game_over() -> void:
+	timer.stop()
+	
+	for spot in container.get_children():
+		spot.queue_free()
+
+
+func _on_restart() -> void:
 	timer.start(rand_range (min_seconds, max_seconds))
 
 
@@ -44,6 +56,7 @@ func _spawn() -> void:
 		spot.show()
 	else:
 		spot.queue_free()
+
 
 func _can_place(spot : Area2D) -> bool:	
 	var overlapping_bodies = spot.get_overlapping_bodies()
