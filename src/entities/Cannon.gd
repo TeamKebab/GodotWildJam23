@@ -64,7 +64,6 @@ func _on_detection_area_exited(area: Area2D) -> void:
 
 
 func _on_target_destroyed(virus) -> void:
-	target.owner.disconnect("destroyed", self, "_on_target_destroyed")
 	target = null
 	_find_target()
 

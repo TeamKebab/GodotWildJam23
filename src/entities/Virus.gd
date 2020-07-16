@@ -14,8 +14,6 @@ export var velocity = 80
 export var freq_min = 5
 export var freq_max = 20
 export var max_vertical_movement = 10
-export var rotation_speed_min = -1
-export var rotation_speed_max = 1
 
 
 var hp: float = max_hp setget set_hp
@@ -24,7 +22,6 @@ var affected_defenses: Array = []
 var time: float = 0
 var freq: float = freq_min
 var base_y: float = 0
-var rotation_speed = rotation_speed_min
 var win_x: float = 0
 
 onready var antibodies_container : Node2D = find_parent("Game").find_node("AntiBodies")
@@ -42,10 +39,8 @@ func _ready():
 	freq = Player.rng.randf_range(freq_min, freq_max)
 	base_y = position.y
 	
-	rotation_speed = Player.rng.randf_range(rotation_speed_min, rotation_speed_max)
-	
 	max_hp = max_hp * Player.multiplier
-	hp = hp * Player.multiplier
+	hp = max_hp
 	
 	hpbar.total = max_hp
 	hpbar.value = hp
@@ -59,9 +54,7 @@ func set_hp(new_hp) -> void:
 		_die()
 
 
-func _physics_process(delta):
-	sprite.rotate(delta * rotation_speed)	
-	
+func _physics_process(delta):	
 	var motion = Vector2(velocity, 0)
 	
 	var collision = move_and_collide(motion * delta)

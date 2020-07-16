@@ -35,8 +35,8 @@ func heal() -> void:
 func game_over() -> void:
 	emit_signal("game_over")
 	get_tree().paused = true
+		
 	
-
 func restart() -> void:
 	set_antibodies(ANTIBODIES)
 	multiplier = MULTIPLIER

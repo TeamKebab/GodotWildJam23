@@ -1,11 +1,13 @@
 extends Node2D
 
 enum Virus {
-	CUTEVID
+	CUTEVID,
+	OGREVID,
 }
 
 const VIRUS = {
-	Virus.CUTEVID : preload("res://src/entities/Virus.tscn")	
+	Virus.CUTEVID : preload("res://src/entities/Cutevid.tscn"),	
+	Virus.OGREVID : preload("res://src/entities/Ogrevid.tscn"),
 }
 
 const WAVES = [
@@ -14,7 +16,7 @@ const WAVES = [
 		"times": 1,
 		"virus":[
 			{
-				"type": Virus.CUTEVID,
+				"type": Virus.OGREVID,
 				"row": 0
 			}
 		]
@@ -23,8 +25,8 @@ const WAVES = [
 		"wait": 5,
 		"times": 2,
 		"virus":[
-			Virus.CUTEVID,
-			Virus.CUTEVID,
+			Virus.OGREVID,
+			Virus.OGREVID,
 		]
 	}	
 ]
@@ -44,6 +46,7 @@ func _ready() -> void:
 
 	restart()
 
+
 func _on_game_over() -> void:
 	timer.stop()
 	
@@ -60,6 +63,16 @@ func restart() -> void:
 	timer.start(waves_left[0].wait)
 	
 	
+func _on_virus_destroyed(virus) -> void:
+	container.remove_child(virus)
+	
+	if waves_left.empty():
+		var children_left = container.get_child_count()
+		
+		if children_left == 0:
+			Player.game_over()
+			
+	
 func _on_Timer_timeout():
 	var wave = waves_left[0]
 
@@ -70,9 +83,7 @@ func _on_Timer_timeout():
 
 	_spawn_wavelet(wave)
 
-	if waves_left.empty():
-		Player.game_over()
-	else:
+	if not waves_left.empty():
 		timer.start(waves_left[0].wait)
 		
 
@@ -106,6 +117,7 @@ func _spawn(type: int, row: int):
 	virus.win_x = grid.grid_to_world(grid.size).x
 	
 	container.add_child(virus)
+	virus.connect("destroyed", self, "_on_virus_destroyed")
 
 
 func _get_random(possible_rows: Array) -> int:
