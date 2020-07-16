@@ -7,9 +7,10 @@ var buying_defense : Area2D = null
 onready var button_container : Container = find_node("ButtonContainer")
 onready var defense_container : Node2D = find_parent("Game").find_node("Defenses")
 onready var grid : Grid = find_parent("Game").find_node("Grid")
-
+onready var game_over_panel : Control = find_node("GameOverPanel")
 
 func _ready() -> void:
+	Player.connect("game_over", self, "_on_game_over")
 	for node in button_container.get_children():
 		if node is BuyButton:
 			node.connect("pressed", self, "_on_BuyButton_pressed", [node])
@@ -47,3 +48,13 @@ func _can_place() -> bool:
 
 	var overlapping_bodies = buying_defense.get_overlapping_bodies()
 	return overlapping_bodies.empty()
+
+
+func _on_game_over() -> void:
+	game_over_panel.show()
+
+
+func _on_RestartButton_pressed():
+	game_over_panel.hide()
+	Player.restart()
+	

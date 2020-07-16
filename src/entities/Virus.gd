@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 signal destroyed
 
+
 const AntiBodies = preload("res://src/entities/AntiBodies.tscn")
 
 
@@ -24,7 +25,7 @@ var time: float = 0
 var freq: float = freq_min
 var base_y: float = 0
 var rotation_speed = rotation_speed_min
-
+var win_x: float = 0
 
 onready var antibodies_container : Node2D = find_parent("Game").find_node("AntiBodies")
 onready var hitbox : Area2D = $HitBox
@@ -70,7 +71,11 @@ func _physics_process(delta):
 		
 		position.y = base_y + max_vertical_movement * cos(time * freq)
 
-
+	if global_position.x > win_x:
+		Player.game_over()
+		queue_free()
+		
+		
 func _on_hitbox_area_entered(hurtbox: Area2D) -> void:
 	var defense = hurtbox.owner
 
