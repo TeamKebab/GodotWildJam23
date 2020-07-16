@@ -10,9 +10,12 @@ export var antibodies_amount = 1
 export var damage: float = 1
 export var cooldown: float = 3
 export var velocity = 80
-export var freq_min = 1
-export var freq_max = 10
+export var freq_min = 5
+export var freq_max = 20
 export var max_vertical_movement = 10
+export var rotation_speed_min = -1
+export var rotation_speed_max = 1
+
 
 var hp: float = max_hp setget set_hp
 
@@ -20,11 +23,14 @@ var affected_defenses: Array = []
 var time: float = 0
 var freq: float = freq_min
 var base_y: float = 0
+var rotation_speed = rotation_speed_min
+
 
 onready var antibodies_container : Node2D = find_parent("Game").find_node("AntiBodies")
 onready var hitbox : Area2D = $HitBox
 onready var hpbar : MiniBar = $HP
 onready var timer : Timer = $Timer
+onready var sprite : AnimatedSprite = $Sprite
 
 
 func _ready():
@@ -34,6 +40,8 @@ func _ready():
 	
 	freq = Player.rng.randf_range(freq_min, freq_max)
 	base_y = position.y
+	
+	rotation_speed = Player.rng.randf_range(rotation_speed_min, rotation_speed_max)
 	
 	max_hp = max_hp * Player.multiplier
 	hp = hp * Player.multiplier
@@ -51,7 +59,7 @@ func set_hp(new_hp) -> void:
 
 
 func _physics_process(delta):
-	
+	sprite.rotate(delta * rotation_speed)	
 	
 	var motion = Vector2(velocity, 0)
 	

@@ -5,7 +5,7 @@ const VELOCITY = 500
 
 
 export var damage : float = 1
-
+export var rotation_speed = 3
 
 var direction = Vector2.ONE
 
@@ -19,7 +19,8 @@ func _ready() -> void:
 
 func _physics_process(delta) -> void:
 	var collision = move_and_collide(direction * VELOCITY * delta)
-
+	
+	rotate(delta * rotation_speed)	
 
 func _on_hitbox_area_entered(hurtbox: Area2D) -> void:
 	var virus = hurtbox.owner

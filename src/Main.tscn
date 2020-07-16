@@ -22,16 +22,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AntiBodies" type="Node2D" parent="."]
-
-[node name="Defenses" type="YSort" parent="."]
-
 [node name="SpotSpawner" type="Node2D" parent="."]
 script = ExtResource( 2 )
 
 [node name="Spots" type="YSort" parent="SpotSpawner"]
 
 [node name="Timer" type="Timer" parent="SpotSpawner"]
+
+[node name="AntiBodies" type="Node2D" parent="."]
+
+[node name="Defenses" type="YSort" parent="."]
 
 [node name="WaveSpawner" type="Node2D" parent="."]
 script = ExtResource( 1 )
