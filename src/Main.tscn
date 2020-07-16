@@ -22,6 +22,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Grid" parent="." instance=ExtResource( 4 )]
+position = Vector2( 128, 64 )
+
 [node name="SpotSpawner" type="Node2D" parent="."]
 script = ExtResource( 2 )
 
@@ -66,9 +69,6 @@ __meta__ = {
 [node name="GUI" type="Node" parent="."]
 script = ExtResource( 6 )
 
-[node name="Grid" parent="GUI" instance=ExtResource( 4 )]
-position = Vector2( 128, 64 )
-
 [node name="ToolBar" type="MarginContainer" parent="GUI"]
 anchor_left = 1.0
 anchor_right = 1.0
@@ -105,6 +105,6 @@ custom_constants/separation = 5
 
 [node name="BuyButton1" parent="GUI/ToolBar/VBoxContainer/ButtonContainer" instance=ExtResource( 7 )]
 placeholder_type = ExtResource( 8 )
-[connection signal="mouse_entered_cell" from="GUI/Grid" to="GUI" method="_on_Grid_mouse_entered_cell"]
-[connection signal="mouse_exited_cell" from="GUI/Grid" to="GUI" method="_on_Grid_mouse_exited_cell"]
-[connection signal="mouse_input_cell" from="GUI/Grid" to="GUI" method="_on_Grid_mouse_input_cell"]
+[connection signal="mouse_entered_cell" from="Grid" to="GUI" method="_on_Grid_mouse_entered_cell"]
+[connection signal="mouse_exited_cell" from="Grid" to="GUI" method="_on_Grid_mouse_exited_cell"]
+[connection signal="mouse_input_cell" from="Grid" to="GUI" method="_on_Grid_mouse_input_cell"]
