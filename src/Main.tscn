@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/WaveSpawner.gd" type="Script" id=1]
 [ext_resource path="res://src/SpotSpawner.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://src/Defenses.gd" type="Script" id=11]
 [ext_resource path="res://src/AntiBodies.gd" type="Script" id=12]
 [ext_resource path="res://src/entities/IdentividPlaceholder.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/entities/SnotWallPlaceholder.tscn" type="PackedScene" id=14]
 
 [node name="Game" type="Node"]
 
@@ -104,7 +105,7 @@ script = ExtResource( 5 )
 [node name="ButtonContainer" type="VBoxContainer" parent="GUI/ToolBar/VBoxContainer"]
 margin_top = 18.0
 margin_right = 111.0
-margin_bottom = 63.0
+margin_bottom = 88.0
 size_flags_horizontal = 3
 custom_constants/separation = 5
 
@@ -113,10 +114,17 @@ margin_right = 111.0
 text = "Snot Cannon (1)"
 placeholder_type = ExtResource( 8 )
 
-[node name="IdentividButton" parent="GUI/ToolBar/VBoxContainer/ButtonContainer" instance=ExtResource( 7 )]
+[node name="WallButton" parent="GUI/ToolBar/VBoxContainer/ButtonContainer" instance=ExtResource( 7 )]
 margin_top = 25.0
 margin_right = 111.0
 margin_bottom = 45.0
+text = "Snot Wall (1)"
+placeholder_type = ExtResource( 14 )
+
+[node name="IdentividButton" parent="GUI/ToolBar/VBoxContainer/ButtonContainer" instance=ExtResource( 7 )]
+margin_top = 50.0
+margin_right = 111.0
+margin_bottom = 70.0
 text = "Identivid (1)"
 placeholder_type = ExtResource( 13 )
 
