@@ -7,9 +7,9 @@ enum Virus {
 }
 
 const VIRUS = {
-	Virus.CUTEVID : preload("res://src/entities/Cutevid.tscn"),	
-	Virus.OGREVID : preload("res://src/entities/Ogrevid.tscn"),
-	Virus.GHOSTVID : preload("res://src/entities/Ghostvid.tscn"),
+	Virus.CUTEVID : preload("res://src/entities/virus/Cutevid.tscn"),	
+	Virus.OGREVID : preload("res://src/entities/virus/Ogrevid.tscn"),
+	Virus.GHOSTVID : preload("res://src/entities/virus/Ghostvid.tscn"),
 }
 
 const WAVES = [
@@ -18,7 +18,7 @@ const WAVES = [
 		"times": 1,
 		"virus":[
 			{
-				"type": Virus.GHOSTVID,
+				"type": Virus.CUTEVID,
 				"row": 1
 			},
 			{
@@ -28,7 +28,7 @@ const WAVES = [
 		]
 	},
 	{
-		"wait": 0.5,
+		"wait": 5,
 		"times": 1,
 		"virus":[
 			{

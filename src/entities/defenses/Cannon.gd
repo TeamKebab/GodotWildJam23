@@ -1,6 +1,6 @@
-extends "res://src/entities/Defense.gd"
+extends "res://src/entities/defenses/Defense.gd"
 
-const Bullet = preload("res://src/entities/Bullet.tscn")
+const Bullet = preload("res://src/entities/defenses/Bullet.tscn")
 
 export var cooldown: float = 3
 
