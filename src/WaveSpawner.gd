@@ -63,7 +63,9 @@ func restart() -> void:
 	timer.start(waves_left[0].wait)
 	
 	
-func _on_virus_destroyed(virus) -> void:
+func _on_virus_destroyed(hurtbox) -> void:
+	var virus = hurtbox.get_parent()
+	
 	container.remove_child(virus)
 	
 	if waves_left.empty():

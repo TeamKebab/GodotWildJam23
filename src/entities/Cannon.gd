@@ -4,8 +4,8 @@ const COOLDOWN = 3
 
 const Bullet = preload("res://src/entities/Bullet.tscn")
 
-
-var target : Area2D
+var targets : Array = []
+var current_target : Area2D
 
 
 onready var time_since_last_shoot: float = COOLDOWN
@@ -22,7 +22,7 @@ func _ready() -> void:
 func _physics_process(delta: float):
 	time_since_last_shoot += delta
 	
-	if target != null and time_since_last_shoot > COOLDOWN:		
+	if current_target != null and time_since_last_shoot > COOLDOWN:		
 		time_since_last_shoot = 0
 		_shoot_target()
 
@@ -40,62 +40,56 @@ func _shoot_target() -> void:
 	
 
 func _on_detection_area_entered(area: Area2D) -> void:
-	if target == null:
+	if _is_valid_target(area):
+		area.get_parent().connect("destroyed", self, "_on_target_destroyed")
+		targets.append(area)
+		
+	if current_target == null:
 		_find_target()		
 
 
 func _on_detection_area_exited(area: Area2D) -> void:
-	if target != null:
-		target = null
-		_find_target()		
+	_remove_target(area)
 
 
-func _on_target_destroyed(virus) -> void:
-	target = null
-	_find_target()
+func _on_target_destroyed(area) -> void:
+	_remove_target(area)
+
+
+func _remove_target(area: Area2D) -> void:
+	var virus = area.get_parent()
+	
+	if targets.has(area):
+		targets.erase(area)
+		
+		if virus != null:
+			virus.disconnect("destroyed", self, "_on_target_destroyed")
+		
+		if area == current_target:
+			_find_target()
 
 
 func _find_target() -> void:
-	target = _get_nearest_target(detection.get_overlapping_areas())
+	current_target = null
 
-	if target == null: 
-		return
-
-	target.get_parent().connect("destroyed", self, "_on_target_destroyed")
-
-
-func _get_nearest_target(targets:Array) -> Area2D:
-	var valid_targets : Array = _get_valid_targets(targets)
-
-	if valid_targets.empty():
-		return null
-
-	var target = valid_targets[0]
-
-	for i in valid_targets:
-		if _is_closer(target.global_position, i.global_position):
-			target = i
-
-	return target
-
-
-func _get_valid_targets(targets:Array) -> Array:
-	var valid_targets : Array = []
-
-	for i in targets:
-		var virus = i.get_parent()
-
-		if _is_valid_target(virus):
-			valid_targets.append(i)
-
-	return valid_targets
+	for target in targets:
+		if not _is_valid_target(target):
+			continue
+		
+		if current_target == null:
+			current_target = target
+		else:
+			if _is_closer(current_target.global_position, target.global_position):
+				current_target = target
 
 
 func _is_closer(current: Vector2, next: Vector2) -> bool:
 	return next.distance_to(global_position) < current.distance_to(global_position)
 
 
-func _is_valid_target(virus) -> bool:
+func _is_valid_target(area) -> bool:
+	var virus = area.get_parent()
+	
 	if virus == null:
 		return false
 		

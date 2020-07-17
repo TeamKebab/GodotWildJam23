@@ -113,6 +113,7 @@ func _die() -> void:
 	antibodies.global_position.y += randi() % 32 - 16
 	antibodies_container.add_child(antibodies)
 
-	emit_signal("destroyed", self)
+	# todo: use variable for $HurtBox
+	emit_signal("destroyed", $HurtBox)
 	queue_free()
 
