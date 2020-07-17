@@ -23,9 +23,9 @@ func _physics_process(delta) -> void:
 	rotate(delta * rotation_speed)	
 
 func _on_hitbox_area_entered(hurtbox: Area2D) -> void:
-	var virus = hurtbox.owner
+	var virus = hurtbox.get_parent()
 
-	if not virus.has_method("set_hp"):
+	if virus == null or not virus.has_method("set_hp"):
 		return
 
 	virus.hp -= damage

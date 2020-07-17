@@ -1,17 +1,15 @@
-extends KinematicBody2D
-
+extends "res://src/entities/Defense.gd"
 
 const COOLDOWN = 3
 
 const Bullet = preload("res://src/entities/Bullet.tscn")
 
-var hp : float = 2 setget set_hp
+
 var target : Area2D
+
 
 onready var time_since_last_shoot: float = COOLDOWN
 onready var detection : Area2D = $DetectionBox
-onready var hpbar : MiniBar = $HP
-onready var sprite : AnimatedSprite = $Sprite
 
 
 func _ready() -> void:
@@ -19,19 +17,8 @@ func _ready() -> void:
 		"_on_detection_area_entered")
 	detection.connect("area_exited", self,
 		"_on_detection_area_exited")
-
-	hpbar.total = hp
-	hpbar.value = hp
-
-
-func set_hp(new_hp) -> void:
-	hp = new_hp
-	hpbar.value = hp
-
-	if hp <= 0:
-		queue_free()
-
-
+	
+		
 func _physics_process(delta: float):
 	time_since_last_shoot += delta
 	
@@ -74,7 +61,7 @@ func _find_target() -> void:
 	if target == null: 
 		return
 
-	target.owner.connect("destroyed", self, "_on_target_destroyed")
+	target.get_parent().connect("destroyed", self, "_on_target_destroyed")
 
 
 func _get_nearest_target(targets:Array) -> Area2D:
@@ -96,9 +83,9 @@ func _get_valid_targets(targets:Array) -> Array:
 	var valid_targets : Array = []
 
 	for i in targets:
-		var virus = i.owner
+		var virus = i.get_parent()
 
-		if virus != null and virus.has_method("set_hp") and virus.hp > 0:
+		if _is_valid_target(virus):
 			valid_targets.append(i)
 
 	return valid_targets
@@ -106,3 +93,16 @@ func _get_valid_targets(targets:Array) -> Array:
 
 func _is_closer(current: Vector2, next: Vector2) -> bool:
 	return next.distance_to(global_position) < current.distance_to(global_position)
+
+
+func _is_valid_target(virus) -> bool:
+	if virus == null:
+		return false
+		
+	if not virus.has_method("set_hp"):
+		return false
+	
+	if virus.hp <= 0:
+		return false
+		
+	return true

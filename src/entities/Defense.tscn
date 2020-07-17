@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/entities/Defense.gd" type="Script" id=1]
+[ext_resource path="res://src/resources/SnotCannon.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://src/components/HurtBox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/components/MiniBar.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 30, 30 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 14 )
+
+[node name="Defense" type="KinematicBody2D"]
+collision_layer = 2147483656
+collision_mask = 0
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( -34, -10 )
+frames = ExtResource( 2 )
+animation = "charge"
+frame = 3
+playing = true
+
+[node name="HurtBox" parent="." instance=ExtResource( 4 )]
+collision_layer = 0
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource( 2 )
+
+[node name="HP" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0.148651, 26.8244 )
+half_width = 30
+value = 2.0
+
+[editable path="HurtBox"]
