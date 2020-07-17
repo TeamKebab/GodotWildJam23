@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/WaveSpawner.gd" type="Script" id=1]
 [ext_resource path="res://src/SpotSpawner.gd" type="Script" id=2]
@@ -14,8 +14,15 @@
 [ext_resource path="res://src/AntiBodies.gd" type="Script" id=12]
 [ext_resource path="res://src/entities/IdentividPlaceholder.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/entities/SnotWallPlaceholder.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/music/vids_1.ogg" type="AudioStream" id=15]
 
 [node name="Game" type="Node"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 512, 288 )
+stream = ExtResource( 15 )
+autoplay = true
+area_mask = 0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_right = 40.0

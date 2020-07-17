@@ -8,9 +8,9 @@ var revealed:bool = true setget _set_revealed
 var identivids = []
 
 
-onready var hurtbox_shape : CollisionShape2D = $HurtBox/CollisionShape2D
 onready var detection : Area2D = $DetectionBox
 onready var hurtbox: Area2D = $HurtBox
+onready var shape: CollisionShape2D = $CollisionShape2D
 
 
 func _ready():
@@ -53,7 +53,10 @@ func _set_revealed(value) -> void:
 		return
 
 	revealed = value
-
+	
+	shape.set_deferred("disabled", not revealed)
+	hitbox.set_disabled(not revealed)
+		
 	if revealed:
 		sprite.play("visible")
 		emit_signal("revealed", hurtbox)
