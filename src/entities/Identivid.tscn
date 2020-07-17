@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/entities/Defense.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/identivid.png" type="Texture" id=2]
+[ext_resource path="res://src/components/DetectionBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/entities/Identivid.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9, 14 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 10, 14 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 192, 128 )
+
+[node name="Identivid" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( -1, 0 )
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." index="1"]
+position = Vector2( 0, 0 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 0
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2( -1, 0 )
+shape = SubResource( 4 )
+
+[node name="DetectionBox" parent="." index="4" instance=ExtResource( 3 )]
+collision_layer = 32
+
+[node name="CollisionShape2D" parent="DetectionBox" index="0"]
+shape = SubResource( 5 )
+
+[editable path="HurtBox"]
+
+[editable path="DetectionBox"]

@@ -3,11 +3,13 @@ extends Node2D
 enum Virus {
 	CUTEVID,
 	OGREVID,
+	GHOSTVID,
 }
 
 const VIRUS = {
 	Virus.CUTEVID : preload("res://src/entities/Cutevid.tscn"),	
 	Virus.OGREVID : preload("res://src/entities/Ogrevid.tscn"),
+	Virus.GHOSTVID : preload("res://src/entities/Ghostvid.tscn"),
 }
 
 const WAVES = [
@@ -16,8 +18,26 @@ const WAVES = [
 		"times": 1,
 		"virus":[
 			{
-				"type": Virus.OGREVID,
-				"row": 0
+				"type": Virus.GHOSTVID,
+				"row": 1
+			},
+			{
+				"type": Virus.GHOSTVID,
+				"row": 2
+			}
+		]
+	},
+	{
+		"wait": 0.5,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.CUTEVID,
+				"row": 1
+			},
+			{
+				"type": Virus.GHOSTVID,
+				"row": 2
 			}
 		]
 	},
@@ -25,8 +45,7 @@ const WAVES = [
 		"wait": 5,
 		"times": 2,
 		"virus":[
-			Virus.OGREVID,
-			Virus.OGREVID,
+			Virus.CUTEVID,
 		]
 	}	
 ]

@@ -4,25 +4,26 @@
 [ext_resource path="res://src/components/DetectionBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/entities/Cannon.gd" type="Script" id=3]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 18 )
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 224, 32 )
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 224, 15 )
 
 [node name="Cannon" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
+hp = 5.0
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 position = Vector2( 0, 4 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="DetectionBox" parent="." index="4" instance=ExtResource( 2 )]
 collision_layer = 2
 
 [node name="CollisionShape2D" parent="DetectionBox" index="0"]
-position = Vector2( -224, 0 )
-shape = SubResource( 1 )
+position = Vector2( -224, -4 )
+shape = SubResource( 2 )
 
 [editable path="HurtBox"]
 

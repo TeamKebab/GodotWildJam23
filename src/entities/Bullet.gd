@@ -28,6 +28,9 @@ func _on_hitbox_area_entered(hurtbox: Area2D) -> void:
 	if virus == null or not virus.has_method("set_hp"):
 		return
 
+	if "revealed" in virus and not virus.revealed:
+		return
+		
 	virus.hp -= damage
 
 	# TODO play animation & wait for end

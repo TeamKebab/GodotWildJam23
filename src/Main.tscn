@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/WaveSpawner.gd" type="Script" id=1]
 [ext_resource path="res://src/SpotSpawner.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/sprites/bg/nose-fondo-up.png" type="Texture" id=10]
 [ext_resource path="res://src/Defenses.gd" type="Script" id=11]
 [ext_resource path="res://src/AntiBodies.gd" type="Script" id=12]
+[ext_resource path="res://src/entities/IdentividPlaceholder.tscn" type="PackedScene" id=13]
 
 [node name="Game" type="Node"]
 
@@ -77,7 +78,7 @@ script = ExtResource( 6 )
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -64.0
+margin_left = -131.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -92,23 +93,32 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/ToolBar"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 54.0
+margin_right = 121.0
 margin_bottom = 566.0
 
 [node name="AntibodiesCounter" type="Label" parent="GUI/ToolBar/VBoxContainer"]
-margin_right = 44.0
+margin_right = 111.0
 margin_bottom = 14.0
 script = ExtResource( 5 )
 
 [node name="ButtonContainer" type="VBoxContainer" parent="GUI/ToolBar/VBoxContainer"]
 margin_top = 18.0
-margin_right = 44.0
-margin_bottom = 38.0
+margin_right = 111.0
+margin_bottom = 63.0
 size_flags_horizontal = 3
 custom_constants/separation = 5
 
-[node name="BuyButton1" parent="GUI/ToolBar/VBoxContainer/ButtonContainer" instance=ExtResource( 7 )]
+[node name="CannonButton" parent="GUI/ToolBar/VBoxContainer/ButtonContainer" instance=ExtResource( 7 )]
+margin_right = 111.0
+text = "Snot Cannon (1)"
 placeholder_type = ExtResource( 8 )
+
+[node name="IdentividButton" parent="GUI/ToolBar/VBoxContainer/ButtonContainer" instance=ExtResource( 7 )]
+margin_top = 25.0
+margin_right = 111.0
+margin_bottom = 45.0
+text = "Identivid (1)"
+placeholder_type = ExtResource( 13 )
 
 [node name="GameOverPanel" type="PanelContainer" parent="GUI"]
 pause_mode = 2

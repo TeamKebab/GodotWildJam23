@@ -13,7 +13,7 @@ export var cooldown: float = 3
 export var velocity = 80
 export var freq_min = 5
 export var freq_max = 20
-export var max_vertical_movement = 10
+export var max_vertical_movement = 8
 
 
 var hp: float = max_hp setget set_hp
