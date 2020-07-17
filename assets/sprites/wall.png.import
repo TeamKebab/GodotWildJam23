@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mucus-wall.png-c16aa18b1ed02578130d1e2757f065fd.stex"
+path="res://.import/wall.png-a2b2dda47b1ed3651589e27171e28380.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/mucus-wall.png"
-dest_files=[ "res://.import/mucus-wall.png-c16aa18b1ed02578130d1e2757f065fd.stex" ]
+source_file="res://assets/sprites/wall.png"
+dest_files=[ "res://.import/wall.png-a2b2dda47b1ed3651589e27171e28380.stex" ]
 
 [params]
 

@@ -1,40 +1,71 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/entities/Defense.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/sprites/mucus-wall.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/wall.png" type="Texture" id=2]
+[ext_resource path="res://src/entities/SnotWall.gd" type="Script" id=3]
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 22, 22 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 18, 18 )
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 64, 128 )
+region = Rect2( 0, 0, 64, 64 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 256, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 320, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 384, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 448, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=10]
 animations = [ {
-"frames": [ SubResource( 1 ) ],
-"loop": true,
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": false,
 "name": "default",
-"speed": 5.0
+"speed": 10.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 24, 24 )
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 22, 18 )
 
 [node name="SnotWall" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
 hp = 5.0
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2( 0, 2 )
-shape = SubResource( 3 )
+position = Vector2( 4, 4 )
+shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="1"]
-position = Vector2( 0, -32 )
-frames = SubResource( 2 )
+position = Vector2( 0, 4 )
+frames = SubResource( 10 )
 animation = "default"
-frame = 0
+frame = 7
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-shape = SubResource( 4 )
+position = Vector2( 4, 4 )
+shape = SubResource( 11 )
 
 [editable path="HurtBox"]

@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal destroyed(defense)
+signal hp_changed(old_hp, new_hp)
 
 export var hp : float = 2 setget set_hp
 
@@ -14,6 +15,9 @@ func _ready() -> void:
 
 
 func set_hp(new_hp) -> void:
+	if (new_hp != hp):
+		emit_signal("hp_changed", hp, new_hp)
+		
 	hp = new_hp
 	
 	if hpbar != null:
