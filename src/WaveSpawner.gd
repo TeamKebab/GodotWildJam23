@@ -19,6 +19,7 @@ const VIRUS = {
 	Virus.GHOSTVID : preload("res://src/entities/virus/Ghostvid.tscn"),
 	Virus.FIREVID : preload("res://src/entities/virus/Firevid.tscn"),
 	Virus.FLYVID : preload("res://src/entities/virus/Flyvid.tscn"),
+	Virus.QUEENVID : preload("res://src/entities/virus/Queenvid.tscn"),
 }
 
 
@@ -46,6 +47,7 @@ func _on_virus_destroyed(hurtbox) -> void:
 func spawn_virus(viruses):
 	assert(viruses.size() <= int(grid.size.y))
 	
+	var spawned_virus = []
 	var possible_rows = _get_possible_rows()
 	
 	for virus in viruses:
@@ -63,7 +65,9 @@ func spawn_virus(viruses):
 		if virus_row < 0 or virus_row >= grid.size.y:
 			virus_row = _get_random(possible_rows)
 
-		_spawn(virus_type, virus_row)	
+		spawned_virus.append(_spawn(virus_type, virus_row))
+		
+	return spawned_virus	
 
 
 func _spawn(type: int, row: int):
@@ -74,6 +78,8 @@ func _spawn(type: int, row: int):
 	
 	add_child(virus)
 	virus.connect("destroyed", self, "_on_virus_destroyed")
+	
+	return virus
 
 
 func _get_random(possible_rows: Array) -> int:

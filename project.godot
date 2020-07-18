@@ -54,6 +54,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/components/MiniBar.gd"
 }, {
+"base": "Virus",
+"class": "Queenvid",
+"language": "GDScript",
+"path": "res://src/entities/virus/Queenvid.gd"
+}, {
 "base": "Defense",
 "class": "SnotWall",
 "language": "GDScript",
@@ -74,6 +79,7 @@ _global_script_class_icons={
 "Hair": "",
 "Identivid": "",
 "MiniBar": "",
+"Queenvid": "",
 "SnotWall": "",
 "Virus": ""
 }
