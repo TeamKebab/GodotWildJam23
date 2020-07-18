@@ -21,6 +21,8 @@ onready var defense_container : Node2D = game.find_node("Defenses")
 onready var button_container : Container = find_node("ButtonContainer")
 onready var game_over_panel : Control = find_node("GameOverPanel")
 onready var tutorial: Control = find_node("Tutorial")
+onready var buy_sound : AudioStreamPlayer2D = $BuySound
+onready var place_sound : AudioStreamPlayer2D = $PlaceSound
 
 
 onready var buttons = {
@@ -54,6 +56,8 @@ func show_tooltip(Tooltip):
 
 
 func _on_BuyButton_pressed(button : BuyButton) -> void:
+	buy_sound.stream.loop = false
+	buy_sound.play()
 	buying_defense = button.placeholder
 	
 	
@@ -75,6 +79,9 @@ func _on_Grid_mouse_input_cell(event, cell):
 			defense_container.add_child(defense)
 			buying_defense.hide()
 			buying_defense = null
+			place_sound.stream.loop = false
+			place_sound.play()
+	
 		else:
 			print("cannot place")
 

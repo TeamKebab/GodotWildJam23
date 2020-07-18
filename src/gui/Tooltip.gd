@@ -8,6 +8,7 @@ export(String) var text setget _set_text
 
 onready var image : TextureRect = find_node("TextureRect")
 onready var label : RichTextLabel = find_node("RichTextLabel")
+onready var ok_sound : AudioStreamPlayer = $AudioStreamPlayer
 
 
 func _ready() -> void:	
@@ -44,5 +45,10 @@ func _set_text(value):
 
 
 func _on_Button_pressed():
+	ok_sound.stream.loop = false
+	ok_sound.play()
+	
+	yield(ok_sound, "finished")
+	
 	queue_free()
 	get_tree().set_deferred("paused", false)
