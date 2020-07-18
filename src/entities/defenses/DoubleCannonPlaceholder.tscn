@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/components/Placeholder.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/double-cannon-animation.png" type="Texture" id=2]
+[ext_resource path="res://src/entities/defenses/DoubleCannon.tscn" type="PackedScene" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 256, 0, 64, 64 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 30, 30 )
+
+[node name="Placeholder" instance=ExtResource( 1 )]
+entity = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 0, -10 )
+texture = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 2 )

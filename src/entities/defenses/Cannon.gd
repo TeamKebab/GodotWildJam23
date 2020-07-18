@@ -1,4 +1,5 @@
 extends Defense
+class_name Cannon
 
 export(PackedScene) var bullet_type =  preload("res://src/entities/defenses/Bullet.tscn")
 export var cooldown: float = 3
