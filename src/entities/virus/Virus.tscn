@@ -1,17 +1,17 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://src/entities/Virus.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/virus.png" type="Texture" id=2]
-[ext_resource path="res://src/components/HurtBox.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/components/HitBox.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/components/MiniBar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/entities/virus/Virus.gd" type="Script" id=1]
+[ext_resource path="res://src/components/HurtBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/components/HitBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/components/MiniBar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/sprites/virus.png" type="Texture" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 5 )
 region = Rect2( 64, 0, 64, 64 )
 
 [sub_resource type="SpriteFrames" id=3]
@@ -33,15 +33,15 @@ playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-[node name="HurtBox" parent="." instance=ExtResource( 3 )]
+[node name="HurtBox" parent="." instance=ExtResource( 2 )]
 collision_layer = 0
 collision_mask = 2
 
-[node name="HitBox" parent="." instance=ExtResource( 4 )]
+[node name="HitBox" parent="." instance=ExtResource( 3 )]
 collision_layer = 2147483649
 collision_mask = 0
 
-[node name="HP" parent="." instance=ExtResource( 5 )]
+[node name="HP" parent="." instance=ExtResource( 4 )]
 position = Vector2( 0, 32 )
 half_width = 30
 value = 2.0

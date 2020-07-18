@@ -1,7 +1,6 @@
 extends Node
 
 signal game_over
-signal restart
 signal antibodies_changed(new_antibodies)
 
 const ANTIBODIES = 5
@@ -9,6 +8,7 @@ const MULTIPLIER = 1
 
 var antibodies: int = ANTIBODIES setget set_antibodies
 var multiplier: float = MULTIPLIER
+var show_tips: bool = true
 
 var rng = RandomNumberGenerator.new()
 
@@ -34,12 +34,8 @@ func heal() -> void:
 
 func game_over() -> void:
 	emit_signal("game_over")
-	get_tree().paused = true
-		
-	
+
+
 func restart() -> void:
 	set_antibodies(ANTIBODIES)
 	multiplier = MULTIPLIER
-	
-	get_tree().paused = false
-	emit_signal("restart")

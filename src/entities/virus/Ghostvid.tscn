@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://src/entities/Virus.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/entities/virus/Virus.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/components/DetectionBox.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/entities/Ghostvid.gd" type="Script" id=3]
+[ext_resource path="res://src/entities/virus/Ghostvid.gd" type="Script" id=3]
 [ext_resource path="res://assets/sprites/ghostvid.png" type="Texture" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -39,7 +39,14 @@ radius = 24.0
 
 [node name="Ghostvid" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
+max_hp = 2.0
+antibodies_amount = 1
+damage = 1.0
 cooldown = 2.0
+velocity = 80
+freq_min = 5
+freq_max = 20
+max_vertical_movement = 8
 
 [node name="Sprite" parent="." index="0"]
 frames = SubResource( 3 )

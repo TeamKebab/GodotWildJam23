@@ -1,4 +1,4 @@
-extends "res://src/entities/Defense.gd"
+extends "res://src/entities/defenses/Defense.gd"
 
 
 func _ready():

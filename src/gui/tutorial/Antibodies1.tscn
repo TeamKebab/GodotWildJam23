@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/gui/Tooltip.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/antibodies.png" type="Texture" id=2]
+
+[node name="Tooltip" instance=ExtResource( 1 )]
+texture = ExtResource( 2 )
+text = "These are your available antibodies. They can be used to buy defenses."
+
+[node name="MarginContainer" parent="." index="0"]
+margin_bottom = 173.0
+
+[node name="VBoxContainer" parent="MarginContainer" index="0"]
+margin_bottom = 161.0
+
+[node name="RichTextLabel" parent="MarginContainer/VBoxContainer" index="1"]
+margin_bottom = 81.0
+bbcode_text = "These are your available antibodies. They can be used to buy defenses."
+text = "These are your available antibodies. They can be used to buy defenses."
+
+[node name="Space1" parent="MarginContainer/VBoxContainer" index="2"]
+margin_top = 85.0
+margin_bottom = 95.0
+
+[node name="CheckBox" parent="MarginContainer/VBoxContainer" index="3"]
+margin_top = 99.0
+margin_bottom = 123.0
+
+[node name="Space2" parent="MarginContainer/VBoxContainer" index="4"]
+margin_top = 127.0
+margin_bottom = 132.0
+
+[node name="Button" parent="MarginContainer/VBoxContainer" index="5"]
+margin_top = 136.0
+margin_bottom = 156.0

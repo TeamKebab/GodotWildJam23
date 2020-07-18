@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Identivid",
 "language": "GDScript",
-"path": "res://src/entities/Identivid.gd"
+"path": "res://src/entities/defenses/Identivid.gd"
 }, {
 "base": "Node2D",
 "class": "MiniBar",

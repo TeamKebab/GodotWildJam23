@@ -1,4 +1,4 @@
-extends "res://src/entities/Virus.gd"
+extends "res://src/entities/virus/Virus.gd"
 
 
 export var rotation_speed_min = -1

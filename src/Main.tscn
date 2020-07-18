@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/WaveSpawner.gd" type="Script" id=1]
 [ext_resource path="res://src/SpotSpawner.gd" type="Script" id=2]
@@ -7,16 +7,36 @@
 [ext_resource path="res://src/gui/AntibodiesCounter.gd" type="Script" id=5]
 [ext_resource path="res://src/GUI.gd" type="Script" id=6]
 [ext_resource path="res://src/gui/BuyButton.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/entities/CannonPlaceholder.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/entities/defenses/CannonPlaceholder.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/sprites/bg/nose-fondo-down.png" type="Texture" id=9]
 [ext_resource path="res://assets/sprites/bg/nose-fondo-up.png" type="Texture" id=10]
 [ext_resource path="res://src/Defenses.gd" type="Script" id=11]
 [ext_resource path="res://src/AntiBodies.gd" type="Script" id=12]
-[ext_resource path="res://src/entities/IdentividPlaceholder.tscn" type="PackedScene" id=13]
-[ext_resource path="res://src/entities/SnotWallPlaceholder.tscn" type="PackedScene" id=14]
+[ext_resource path="res://src/entities/defenses/IdentividPlaceholder.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/entities/defenses/SnotWallPlaceholder.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/music/vids_1.ogg" type="AudioStream" id=15]
+[ext_resource path="res://src/Main.gd" type="Script" id=16]
+[ext_resource path="res://assets/sprites/cannon-animation.png" type="Texture" id=17]
+[ext_resource path="res://assets/sprites/wall.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/identivid.png" type="Texture" id=19]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 17 )
+region = Rect2( 448, 16, 64, 48 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 18 )
+region = Rect2( 448, 0, 64, 48 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 19 )
+region = Rect2( 0, 0, 32, 32 )
 
 [node name="Game" type="Node"]
+script = ExtResource( 16 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 512, 288 )
@@ -49,13 +69,8 @@ script = ExtResource( 12 )
 [node name="Defenses" type="YSort" parent="."]
 script = ExtResource( 11 )
 
-[node name="WaveSpawner" type="Node2D" parent="."]
+[node name="WaveSpawner" type="YSort" parent="."]
 script = ExtResource( 1 )
-
-[node name="Virus" type="YSort" parent="WaveSpawner"]
-
-[node name="Timer" type="Timer" parent="WaveSpawner"]
-one_shot = true
 
 [node name="Top" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -86,7 +101,7 @@ script = ExtResource( 6 )
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -131.0
+margin_left = -124.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -101,39 +116,64 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/ToolBar"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 121.0
+margin_right = 114.0
 margin_bottom = 566.0
 
 [node name="AntibodiesCounter" type="Label" parent="GUI/ToolBar/VBoxContainer"]
-margin_right = 111.0
+margin_right = 104.0
 margin_bottom = 14.0
 script = ExtResource( 5 )
 
 [node name="ButtonContainer" type="VBoxContainer" parent="GUI/ToolBar/VBoxContainer"]
 margin_top = 18.0
-margin_right = 111.0
-margin_bottom = 88.0
+margin_right = 104.0
+margin_bottom = 246.0
 size_flags_horizontal = 3
 custom_constants/separation = 5
 
 [node name="CannonButton" parent="GUI/ToolBar/VBoxContainer/ButtonContainer" instance=ExtResource( 7 )]
-margin_right = 111.0
-text = "Snot Cannon (1)"
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 104.0
+margin_bottom = 78.0
+text = "1"
+icon = SubResource( 1 )
 placeholder_type = ExtResource( 8 )
 
 [node name="WallButton" parent="GUI/ToolBar/VBoxContainer/ButtonContainer" instance=ExtResource( 7 )]
-margin_top = 25.0
-margin_right = 111.0
-margin_bottom = 45.0
-text = "Snot Wall (1)"
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 83.0
+margin_right = 104.0
+margin_bottom = 161.0
+text = "1"
+icon = SubResource( 2 )
 placeholder_type = ExtResource( 14 )
 
 [node name="IdentividButton" parent="GUI/ToolBar/VBoxContainer/ButtonContainer" instance=ExtResource( 7 )]
-margin_top = 50.0
-margin_right = 111.0
-margin_bottom = 70.0
-text = "Identivid (1)"
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 166.0
+margin_right = 104.0
+margin_bottom = 228.0
+text = "1"
+icon = SubResource( 3 )
 placeholder_type = ExtResource( 13 )
+
+[node name="Tutorial" type="Control" parent="GUI"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="GameOverPanel" type="PanelContainer" parent="GUI"]
 pause_mode = 2
