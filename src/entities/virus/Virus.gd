@@ -1,4 +1,6 @@
 extends KinematicBody2D
+class_name Virus
+
 
 signal destroyed
 
@@ -79,7 +81,7 @@ func _on_hitbox_area_entered(hurtbox: Area2D) -> void:
 		affected_defenses.append(defense)
 		
 	if timer.is_stopped():
-		defense.hp -= damage
+		_do_damage(defense)
 		timer.start(cooldown)
 	
 	
@@ -97,7 +99,7 @@ func _on_timer_timeout() -> void:
 		if defense == null or defense.hp <= 0:
 			to_remove.append(defense)
 		else:
-			defense.hp -= damage
+			_do_damage(defense)
 	
 	for defense in to_remove:
 		affected_defenses.erase(defense)
@@ -105,7 +107,12 @@ func _on_timer_timeout() -> void:
 	if not affected_defenses.empty():
 		timer.start(cooldown)
 	
-	
+
+func _do_damage(defense):
+	if not defense is Hair:
+		defense.hp -= damage
+
+
 func _die() -> void:
 	var antibodies = AntiBodies.instance()
 	antibodies.amount = antibodies_amount

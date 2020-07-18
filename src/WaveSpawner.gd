@@ -17,14 +17,11 @@ const VIRUS = {
 	Virus.CUTEVID : preload("res://src/entities/virus/Cutevid.tscn"),	
 	Virus.OGREVID : preload("res://src/entities/virus/Ogrevid.tscn"),
 	Virus.GHOSTVID : preload("res://src/entities/virus/Ghostvid.tscn"),
+	Virus.FIREVID : preload("res://src/entities/virus/Firevid.tscn"),
 }
 
 
 onready var grid : Grid = find_parent("Game").find_node("Grid")
-
-
-func _ready() -> void:	
-	Player.connect("game_over", self, "_on_game_over")
 
 
 func restart() -> void:

@@ -1,4 +1,4 @@
-extends Button
+extends TextureButton
 class_name BuyButton
 
 export(PackedScene) var placeholder_type

@@ -24,6 +24,7 @@ onready var tutorial: Control = find_node("Tutorial")
 onready var buttons = {
 	Defense.SNOT_CANNON : button_container.find_node("CannonButton"),
 	Defense.SNOT_WALL : button_container.find_node("WallButton"),
+	Defense.HAIR : button_container.find_node("HairButton"),
 	Defense.IDENTIVID : button_container.find_node("IdentividButton"),
 }
 

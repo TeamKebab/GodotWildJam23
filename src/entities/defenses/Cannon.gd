@@ -1,4 +1,4 @@
-extends "res://src/entities/defenses/Defense.gd"
+extends Defense
 
 const Bullet = preload("res://src/entities/defenses/Bullet.tscn")
 
@@ -43,8 +43,10 @@ func _on_detection_area_entered(area: Area2D) -> void:
 	if _is_valid_target(area):
 		var virus = area.get_parent()
 		virus.connect("destroyed", self, "_on_target_destroyed")
-		virus.connect("revealed", self, "_on_target_revealed")
-		virus.connect("disappeared", self, "_on_target_disappeared")
+		
+		if virus is Ghostvid:
+			virus.connect("revealed", self, "_on_target_revealed")
+			virus.connect("disappeared", self, "_on_target_disappeared")
 		
 		targets.append(area)
 		
@@ -78,8 +80,10 @@ func _remove_target(area: Area2D) -> void:
 		
 		if virus != null:
 			virus.disconnect("destroyed", self, "_on_target_destroyed")
-			virus.disconnect("revealed", self, "_on_target_revealed")
-			virus.disconnect("disappeared", self, "_on_target_disappeared")
+
+			if virus is Ghostvid:
+				virus.disconnect("revealed", self, "_on_target_revealed")
+				virus.disconnect("disappeared", self, "_on_target_disappeared")
 			
 		if area == current_target:
 			_find_target()

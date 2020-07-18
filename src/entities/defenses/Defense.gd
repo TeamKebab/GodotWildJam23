@@ -1,4 +1,6 @@
 extends KinematicBody2D
+class_name Defense
+
 
 signal destroyed(defense)
 signal hp_changed(old_hp, new_hp)

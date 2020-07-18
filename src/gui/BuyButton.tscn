@@ -1,25 +1,22 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/gui/BuyButton.gd" type="Script" id=1]
-[ext_resource path="res://src/resources/TooltipPanel.tres" type="StyleBox" id=2]
-[ext_resource path="res://assets/sprites/identivid.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/card-snot-cannon.png" type="Texture" id=2]
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 32, 32 )
-
-[node name="BuyButton" type="Button"]
+[node name="BuyButton" type="TextureButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-rect_min_size = Vector2( 104, 62 )
+margin_left = -512.0
+margin_top = -288.0
+margin_right = -448.0
+margin_bottom = -224.0
 mouse_filter = 1
 size_flags_horizontal = 4
 size_flags_vertical = 4
-custom_styles/normal = ExtResource( 2 )
-text = "1$"
-icon = SubResource( 1 )
+texture_normal = ExtResource( 2 )
+stretch_mode = 3
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
