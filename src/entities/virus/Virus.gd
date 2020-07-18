@@ -76,6 +76,10 @@ func set_status(status) -> void:
 
 
 func _physics_process(delta):	
+	_move(delta)
+
+
+func _move(delta):
 	var motion = Vector2(velocity, 0)
 	
 	var collision = move_and_collide(motion * delta)

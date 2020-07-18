@@ -18,6 +18,7 @@ const VIRUS = {
 	Virus.OGREVID : preload("res://src/entities/virus/Ogrevid.tscn"),
 	Virus.GHOSTVID : preload("res://src/entities/virus/Ghostvid.tscn"),
 	Virus.FIREVID : preload("res://src/entities/virus/Firevid.tscn"),
+	Virus.FLYVID : preload("res://src/entities/virus/Flyvid.tscn"),
 }
 
 
