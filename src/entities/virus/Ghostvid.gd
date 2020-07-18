@@ -1,5 +1,5 @@
-extends "res://src/entities/virus/Virus.gd"
-
+extends Virus
+class_name Ghostvid
 
 signal revealed
 signal disappeared

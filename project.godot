@@ -9,17 +9,32 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Button",
+"base": "TextureButton",
 "class": "BuyButton",
 "language": "GDScript",
 "path": "res://src/gui/BuyButton.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Defense",
+"language": "GDScript",
+"path": "res://src/entities/defenses/Defense.gd"
+}, {
+"base": "Virus",
+"class": "Ghostvid",
+"language": "GDScript",
+"path": "res://src/entities/virus/Ghostvid.gd"
 }, {
 "base": "Area2D",
 "class": "Grid",
 "language": "GDScript",
 "path": "res://src/components/Grid.gd"
 }, {
-"base": "KinematicBody2D",
+"base": "Defense",
+"class": "Hair",
+"language": "GDScript",
+"path": "res://src/entities/defenses/Hair.gd"
+}, {
+"base": "Defense",
 "class": "Identivid",
 "language": "GDScript",
 "path": "res://src/entities/defenses/Identivid.gd"
@@ -28,12 +43,27 @@ _global_script_classes=[ {
 "class": "MiniBar",
 "language": "GDScript",
 "path": "res://src/components/MiniBar.gd"
+}, {
+"base": "Defense",
+"class": "SnotWall",
+"language": "GDScript",
+"path": "res://src/entities/defenses/SnotWall.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Virus",
+"language": "GDScript",
+"path": "res://src/entities/virus/Virus.gd"
 } ]
 _global_script_class_icons={
 "BuyButton": "",
+"Defense": "",
+"Ghostvid": "",
 "Grid": "",
+"Hair": "",
 "Identivid": "",
-"MiniBar": ""
+"MiniBar": "",
+"SnotWall": "",
+"Virus": ""
 }
 
 [application]

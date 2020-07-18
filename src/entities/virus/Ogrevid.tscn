@@ -66,14 +66,12 @@ height = 64.0
 [node name="Ogrevid" instance=ExtResource( 1 )]
 max_hp = 4.0
 antibodies_amount = 2
-damage = 1.0
 freq_min = 8
 freq_max = 8
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 0, -20 )
 frames = SubResource( 9 )
-frame = 4
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 0, 8 )

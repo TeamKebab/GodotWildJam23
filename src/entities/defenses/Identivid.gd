@@ -1,4 +1,4 @@
-extends "res://src/entities/defenses/Defense.gd"
+extends Defense
 class_name Identivid
 
 

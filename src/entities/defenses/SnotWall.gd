@@ -1,5 +1,5 @@
-extends "res://src/entities/defenses/Defense.gd"
-
+extends Defense
+class_name SnotWall
 
 func _ready():
 	self.connect("hp_changed", self, "_on_hp_changed")
