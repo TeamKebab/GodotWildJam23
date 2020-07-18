@@ -3,10 +3,12 @@ extends Node
 
 enum Defense {
 	SNOT_CANNON,
+	STICKY_CANNON,
 	SNOT_WALL,
 	HAIR,
 	IDENTIVID,
-	DOUBLE_CANNON
+	DOUBLE_CANNON,
+	CATAPULT
 }
 
 
@@ -23,9 +25,12 @@ onready var tutorial: Control = find_node("Tutorial")
 
 onready var buttons = {
 	Defense.SNOT_CANNON : button_container.find_node("CannonButton"),
+	Defense.STICKY_CANNON : button_container.find_node("StickyButton"),
 	Defense.SNOT_WALL : button_container.find_node("WallButton"),
 	Defense.HAIR : button_container.find_node("HairButton"),
 	Defense.IDENTIVID : button_container.find_node("IdentividButton"),
+	Defense.DOUBLE_CANNON : button_container.find_node("DoubleButton"),
+	Defense.CATAPULT : button_container.find_node("CatapultButton"),
 }
 
 func _ready() -> void:

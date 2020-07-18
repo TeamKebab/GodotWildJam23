@@ -1,7 +1,6 @@
 extends Defense
 
-const Bullet = preload("res://src/entities/defenses/Bullet.tscn")
-
+export(PackedScene) var bullet_type =  preload("res://src/entities/defenses/Bullet.tscn")
 export var cooldown: float = 3
 
 var targets : Array = []
@@ -32,7 +31,7 @@ func _shoot_target() -> void:
 	
 	yield(sprite, "animation_finished")
 	
-	var bullet = Bullet.instance()
+	var bullet = bullet_type.instance()
 	bullet.position.x = -32
 	bullet.direction = Vector2.LEFT
 	self.add_child(bullet)
