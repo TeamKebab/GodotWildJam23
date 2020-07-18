@@ -12,7 +12,7 @@ extents = Vector2( 30, 30 )
 extents = Vector2( 10, 14 )
 
 [node name="Defense" type="StaticBody2D"]
-collision_layer = 2147483656
+collision_layer = 2147483720
 collision_mask = 0
 script = ExtResource( 1 )
 

@@ -27,6 +27,7 @@ extents = Vector2( 32, 32 )
 extents = Vector2( 32, 32 )
 
 [node name="Hair" instance=ExtResource( 1 )]
+collision_layer = 2147483712
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="0"]
