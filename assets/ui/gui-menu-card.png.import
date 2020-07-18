@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/card-snot-cannon.png-7be4b70463b87c4bef6f20b817782529.stex"
+path="res://.import/gui-menu-card.png-f2c0554434f5818d71023ffedbe10ed5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/card-snot-cannon.png"
-dest_files=[ "res://.import/card-snot-cannon.png-7be4b70463b87c4bef6f20b817782529.stex" ]
+source_file="res://assets/ui/gui-menu-card.png"
+dest_files=[ "res://.import/gui-menu-card.png-f2c0554434f5818d71023ffedbe10ed5.stex" ]
 
 [params]
 
