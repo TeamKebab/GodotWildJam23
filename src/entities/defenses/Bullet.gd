@@ -18,8 +18,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta) -> void:
-	var collision = move_and_collide(direction * VELOCITY * delta)
-	
+	var collision = move_and_collide(direction * VELOCITY * delta)	
 	rotate(delta * rotation_speed)	
 
 func _on_hitbox_area_entered(hurtbox: Area2D) -> void:
@@ -31,7 +30,11 @@ func _on_hitbox_area_entered(hurtbox: Area2D) -> void:
 	if "revealed" in virus and not virus.revealed:
 		return
 		
-	virus.hp -= damage
+	_do_damage(virus)
 
 	# TODO play animation & wait for end
 	queue_free()
+
+
+func _do_damage(virus):
+	virus.hp -= damage

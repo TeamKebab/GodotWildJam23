@@ -25,6 +25,8 @@ var time: float = 0
 var freq: float = freq_min
 var base_y: float = 0
 var win_x: float = 0
+var statuses: Array = []
+
 
 onready var antibodies_container : Node2D = find_parent("Game").find_node("AntiBodies")
 onready var hitbox : Area2D = $HitBox
@@ -54,6 +56,23 @@ func set_hp(new_hp) -> void:
 
 	if hp <= 0:
 		_die()
+
+
+func set_status(status) -> void:
+	add_child(status)
+	
+	if statuses.empty():		
+		sprite.modulate = Color(0.3, 0.3, 1)
+		
+	statuses.append(status)
+	status.start_status(self)
+	
+	yield(status, "status_ended")
+	
+	statuses.erase(status)
+	
+	if statuses.empty():	
+		sprite.modulate = Color(1, 1, 1)
 
 
 func _physics_process(delta):	

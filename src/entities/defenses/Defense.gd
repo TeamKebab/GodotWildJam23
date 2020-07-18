@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends StaticBody2D
 class_name Defense
 
 

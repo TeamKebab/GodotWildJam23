@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/gui/BuyButton.gd" type="Script" id=1]
-[ext_resource path="res://assets/ui/card-snot-cannon.png" type="Texture" id=2]
+
 
 [node name="BuyButton" type="TextureButton"]
 anchor_left = 0.5
@@ -15,7 +15,6 @@ margin_bottom = -224.0
 mouse_filter = 1
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 2 )
 stretch_mode = 3
 script = ExtResource( 1 )
 __meta__ = {

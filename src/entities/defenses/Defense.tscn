@@ -11,8 +11,8 @@ extents = Vector2( 30, 30 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 14 )
 
-[node name="Defense" type="KinematicBody2D"]
-collision_layer = 2147483656
+[node name="Defense" type="StaticBody2D"]
+collision_layer = 2147483720
 collision_mask = 0
 script = ExtResource( 1 )
 
