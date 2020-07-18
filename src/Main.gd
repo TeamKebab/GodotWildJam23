@@ -158,7 +158,6 @@ onready var timer : Timer = $Timer
 
 func _ready() -> void:	
 	Player.connect("game_over", self, "_on_game_over")
-	Player.connect("restart", self, "_on_restart")
 	
 	timer.connect("timeout", self, "_on_Timer_timeout")
 	wave_spawner.connect("virus_destroyed", self, "_on_wave_destroyed")
