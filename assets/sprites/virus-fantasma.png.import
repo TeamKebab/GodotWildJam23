@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bacterio.png-b3e72ed8de4eec6db0ed25d58be6465e.stex"
+path="res://.import/virus-fantasma.png-5e2e996a5e6a5ff5b425a3cb3d370546.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/bacterio.png"
-dest_files=[ "res://.import/bacterio.png-b3e72ed8de4eec6db0ed25d58be6465e.stex" ]
+source_file="res://assets/sprites/virus-fantasma.png"
+dest_files=[ "res://.import/virus-fantasma.png-5e2e996a5e6a5ff5b425a3cb3d370546.stex" ]
 
 [params]
 
