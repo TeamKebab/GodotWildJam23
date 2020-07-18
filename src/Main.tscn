@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://src/WaveSpawner.gd" type="Script" id=1]
 [ext_resource path="res://src/SpotSpawner.gd" type="Script" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://src/resources/IdentividCard.tres" type="Texture" id=29]
 [ext_resource path="res://src/resources/CatapultCardDisabled.tres" type="Texture" id=30]
 [ext_resource path="res://src/resources/CatapultCard.tres" type="Texture" id=31]
+[ext_resource path="res://src/entities/defenses/DoubleCannonPlaceholder.tscn" type="PackedScene" id=32]
 
 [node name="Game" type="Node"]
 script = ExtResource( 16 )
@@ -222,7 +223,7 @@ texture_pressed = ExtResource( 27 )
 texture_hover = ExtResource( 27 )
 texture_disabled = ExtResource( 26 )
 texture_focused = ExtResource( 27 )
-placeholder_type = ExtResource( 13 )
+placeholder_type = ExtResource( 32 )
 
 [node name="CatapultButton" parent="GUI/ToolBar/VBoxContainer/ButtonContainer" instance=ExtResource( 7 )]
 anchor_left = 0.0
