@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/gui/Tooltip.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/cannon-animation.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 448, 0, 64, 64 )
+
+[node name="Tooltip" instance=ExtResource( 1 )]
+margin_right = -112.0
+margin_bottom = -59.0
+texture = SubResource( 1 )
+text = "Place a snot cannon in the grid to shot at the virus"
+
+[node name="MarginContainer" parent="." index="0"]
+margin_bottom = 190.0
+
+[node name="VBoxContainer" parent="MarginContainer" index="0"]
+margin_bottom = 178.0
+
+[node name="TextureRect" parent="MarginContainer/VBoxContainer" index="0"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+texture = SubResource( 1 )
+
+[node name="RichTextLabel" parent="MarginContainer/VBoxContainer" index="1"]
+margin_top = 68.0
+margin_bottom = 98.0
+bbcode_text = "Place a snot cannon in the grid to shot at the virus"
+text = "Place a snot cannon in the grid to shot at the virus"
+
+[node name="Space1" parent="MarginContainer/VBoxContainer" index="2"]
+margin_top = 102.0
+margin_bottom = 112.0
+
+[node name="CheckBox" parent="MarginContainer/VBoxContainer" index="3"]
+margin_top = 116.0
+margin_bottom = 140.0
+
+[node name="Space2" parent="MarginContainer/VBoxContainer" index="4"]
+margin_top = 144.0
+margin_bottom = 149.0
+
+[node name="Button" parent="MarginContainer/VBoxContainer" index="5"]
+margin_top = 153.0
+margin_bottom = 173.0

@@ -1,19 +1,50 @@
 extends Node
 
 
+enum Defense {
+	SNOT_CANNON,
+	SNOT_WALL,
+	HAIR,
+	IDENTIVID,
+	DOUBLE_CANNON
+}
+
+
 var buying_defense : Area2D = null
 
 
+onready var game = find_parent("Game")
+onready var grid : Grid = game.find_node("Grid")
+onready var defense_container : Node2D = game.find_node("Defenses")
 onready var button_container : Container = find_node("ButtonContainer")
-onready var defense_container : Node2D = find_parent("Game").find_node("Defenses")
-onready var grid : Grid = find_parent("Game").find_node("Grid")
 onready var game_over_panel : Control = find_node("GameOverPanel")
+onready var tutorial: Control = find_node("Tutorial")
+
+
+onready var buttons = {
+	Defense.SNOT_CANNON : button_container.find_node("CannonButton"),
+	Defense.SNOT_WALL : button_container.find_node("WallButton"),
+	Defense.IDENTIVID : button_container.find_node("IdentividButton"),
+}
 
 func _ready() -> void:
 	Player.connect("game_over", self, "_on_game_over")
 	for node in button_container.get_children():
 		if node is BuyButton:
 			node.connect("pressed", self, "_on_BuyButton_pressed", [node])
+
+
+func show_button(defense):
+	buttons[defense].show()
+
+
+func show_tooltip(Tooltip):
+	if not Player.show_tips:
+		return
+
+	var tooltip = Tooltip.instance()
+	tutorial.add_child(tooltip)
+	get_tree().paused = true
 
 
 func _on_BuyButton_pressed(button : BuyButton) -> void:
@@ -56,5 +87,9 @@ func _on_game_over() -> void:
 
 func _on_RestartButton_pressed():
 	game_over_panel.hide()
-	Player.restart()
 	
+	for node in button_container.get_children():
+		if node is BuyButton:
+			node.hide()
+	
+	game.restart()	
