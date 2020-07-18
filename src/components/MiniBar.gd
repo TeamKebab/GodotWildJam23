@@ -9,6 +9,12 @@ export var total: float = 2 setget _set_total
 export var value: float = total setget _set_value
 var bar_width = half_width * 2 - 2
 
+onready var start : Sprite = $Start
+onready var full : Sprite = $Full
+onready var empty : Sprite = $Empty
+onready var end : Sprite = $End
+
+
 func _ready() -> void:
 	_set_half_width(half_width)
 
@@ -16,8 +22,13 @@ func _ready() -> void:
 func _set_half_width(new_value):
 	half_width = new_value
 	bar_width = half_width * 2 - 2
-	$Start.position.x = - half_width + 0.5
-	$End.position.x = half_width - 0.5
+	
+	if start != null:
+		start.position.x = - half_width + 0.5
+	
+	if end != null:
+		end.position.x = half_width - 0.5
+	
 	_refresh()
 
 	
@@ -35,10 +46,11 @@ func _refresh():
 	var pixels_full = floor(value * bar_width / total)
 	var pixels_empty = bar_width - pixels_full
 	
-	if $Full != null and $Empty != null:
-		$Full.position.x = pixels_full / 2 - half_width + 1
-		$Full.scale.x = pixels_full
-		
-		$Empty.position.x = half_width - 1 - pixels_empty / 2
-		$Empty.scale.x = pixels_empty
+	if full != null:
+		full.position.x = pixels_full / 2 - half_width + 1
+		full.scale.x = pixels_full
+	
+	if empty != null:
+		empty.position.x = half_width - 1 - pixels_empty / 2
+		empty.scale.x = pixels_empty
 
