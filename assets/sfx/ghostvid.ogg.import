@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ghostvid.ogg-7d7dab7df195203c8557561835583c6c.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/ghostvid.ogg"
+dest_files=[ "res://.import/ghostvid.ogg-7d7dab7df195203c8557561835583c6c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

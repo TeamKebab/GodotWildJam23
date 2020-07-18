@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/antibodies_collecting.ogg-45b128a8f8e44926610fb48078b20e3a.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/antibodies_collecting.ogg"
+dest_files=[ "res://.import/antibodies_collecting.ogg-45b128a8f8e44926610fb48078b20e3a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

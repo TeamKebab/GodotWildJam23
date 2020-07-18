@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/defense_buying.ogg-9abb0a46a4ccd19bf11b351c4838cfd5.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/defense_buying.ogg"
+dest_files=[ "res://.import/defense_buying.ogg-9abb0a46a4ccd19bf11b351c4838cfd5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

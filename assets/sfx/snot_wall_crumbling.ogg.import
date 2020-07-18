@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/snot_wall_crumbling.ogg-3d2a3dbfc9db483235bf5973fa971537.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/snot_wall_crumbling.ogg"
+dest_files=[ "res://.import/snot_wall_crumbling.ogg-3d2a3dbfc9db483235bf5973fa971537.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

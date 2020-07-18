@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/snot_cannon_impact.ogg-4e4f6008425b3562e80dcc8a0ec6a134.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/snot_cannon_impact.ogg"
+dest_files=[ "res://.import/snot_cannon_impact.ogg-4e4f6008425b3562e80dcc8a0ec6a134.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
