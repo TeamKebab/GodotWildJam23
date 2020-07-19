@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://src/WaveSpawner.gd" type="Script" id=1]
 [ext_resource path="res://src/SpotSpawner.gd" type="Script" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://src/resources/CatapultCard.tres" type="Texture" id=31]
 [ext_resource path="res://src/entities/defenses/DoubleCannonPlaceholder.tscn" type="PackedScene" id=32]
 [ext_resource path="res://assets/ui/gui-menu-card.png" type="Texture" id=33]
+[ext_resource path="res://src/arcade-font.tres" type="DynamicFont" id=34]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 33 )
@@ -308,6 +309,7 @@ margin_bottom = 45.0
 [node name="Label" type="Label" parent="GUI/GameOverPanel/VBoxContainer"]
 margin_right = 73.0
 margin_bottom = 14.0
+custom_fonts/font = ExtResource( 34 )
 custom_colors/font_color = Color( 0.133333, 0.12549, 0.203922, 1 )
 text = "Game Over"
 
@@ -315,6 +317,7 @@ text = "Game Over"
 margin_top = 18.0
 margin_right = 73.0
 margin_bottom = 38.0
+custom_fonts/font = ExtResource( 34 )
 text = "Restart"
 [connection signal="mouse_entered_cell" from="Grid" to="GUI" method="_on_Grid_mouse_entered_cell"]
 [connection signal="mouse_exited_cell" from="Grid" to="GUI" method="_on_Grid_mouse_exited_cell"]
