@@ -211,6 +211,7 @@ func restart() -> void:
 	antibodies.restart()
 	wave_spawner.restart()
 	spot_spawner.restart()
+	gui.restart()
 	
 	waves_left = WAVES.duplicate(true)
 	_setup_wavelet(waves_left[0])

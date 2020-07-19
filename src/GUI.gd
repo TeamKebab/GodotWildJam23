@@ -43,6 +43,14 @@ func _ready() -> void:
 			node.connect("pressed", self, "_on_BuyButton_pressed", [node])
 
 
+func restart():
+	buying_defense = null
+	
+	for node in button_container.get_children():
+		if node is BuyButton:
+			node.hide()
+
+
 func show_button(defense):
 	buttons[defense].show()
 
@@ -99,12 +107,3 @@ func _can_place() -> bool:
 func _on_game_over() -> void:
 	game_over_panel.show()
 
-
-func _on_RestartButton_pressed():
-	game_over_panel.hide()
-	
-	for node in button_container.get_children():
-		if node is BuyButton:
-			node.hide()
-	
-	game.restart()	
