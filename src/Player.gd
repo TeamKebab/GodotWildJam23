@@ -2,6 +2,8 @@ extends Node
 
 signal game_over
 signal antibodies_changed(new_antibodies)
+signal multiplier_changed(new_multiplier)
+
 
 enum Virus {
 	CUTEVID,
@@ -24,6 +26,9 @@ enum Defense {
 
 const ANTIBODIES = 16
 const MULTIPLIER = 1
+const MULTIPLIER_FACTOR = 1.5
+const MAX_MULTIPLIER = 3
+
 
 var antibodies: int = ANTIBODIES setget set_antibodies
 var multiplier: float = MULTIPLIER
@@ -42,13 +47,13 @@ func set_antibodies(new_antibodies) -> void:
 
 
 func infect() -> void:
-	multiplier = multiplier * 1.5
-	
-	
+	multiplier = min(multiplier * MULTIPLIER_FACTOR, MAX_MULTIPLIER)
+	emit_signal("multiplier_changed", multiplier)
+
+
 func heal() -> void:
-	multiplier = multiplier / 1.5
-	if multiplier < 1:
-		multiplier = 1
+	multiplier = max(multiplier / MULTIPLIER_FACTOR, 1)
+	emit_signal("multiplier_changed", multiplier)
 
 
 func game_over() -> void:

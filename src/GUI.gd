@@ -24,6 +24,7 @@ onready var win_panel : Control = find_node("WinPanel")
 onready var tutorial: Control = find_node("Tutorial")
 onready var buy_sound : AudioStreamPlayer2D = $BuySound
 onready var place_sound : AudioStreamPlayer2D = $PlaceSound
+onready var multiplier_bar : TextureProgress = find_node("MultiplierBar")
 
 
 onready var buttons = {
@@ -39,9 +40,13 @@ onready var buttons = {
 
 func _ready() -> void:
 	Player.connect("game_over", self, "_on_game_over")
+	Player.connect("multiplier_changed", self, "_on_multiplier_changed")
+	
 	for node in button_container.get_children():
 		if node is BuyButton:
 			node.connect("pressed", self, "_on_BuyButton_pressed", [node])
+
+	multiplier_bar.max_value = Player.MAX_MULTIPLIER
 
 
 func restart():
@@ -50,6 +55,8 @@ func restart():
 	for node in button_container.get_children():
 		if node is BuyButton:
 			node.hide()
+
+	multiplier_bar.value = Player.multiplier
 
 
 func show_button(defense):
@@ -112,3 +119,6 @@ func _can_place() -> bool:
 func _on_game_over() -> void:
 	game_over_panel.show()
 
+
+func _on_multiplier_changed(new_multiplier) -> void:
+	multiplier_bar.value = new_multiplier

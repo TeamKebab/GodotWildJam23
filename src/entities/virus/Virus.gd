@@ -166,7 +166,7 @@ func _on_timer_timeout() -> void:
 	var to_remove : Array = []
 	
 	for defense in affected_defenses:
-		if defense == null or defense.hp <= 0:
+		if defense == null or not is_instance_valid(defense) or defense.hp <= 0:
 			to_remove.append(defense)
 		else:
 			_do_damage(defense)

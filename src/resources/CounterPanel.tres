@@ -7,8 +7,8 @@ atlas = ExtResource( 1 )
 
 [resource]
 texture = SubResource( 1 )
-region_rect = Rect2( 139, 198, 46, 18 )
-margin_left = 21.0
-margin_right = 21.0
+region_rect = Rect2( 139, 199, 46, 26 )
+margin_left = 22.0
+margin_right = 22.0
 margin_top = 8.0
 margin_bottom = 8.0

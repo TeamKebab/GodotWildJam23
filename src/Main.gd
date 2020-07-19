@@ -438,6 +438,7 @@ onready var antibodies = $AntiBodies
 onready var defenses = $Defenses
 
 onready var timer : Timer = $Timer
+onready var music : AudioStreamPlayer2D = $Music
 
 
 func _ready() -> void:	
@@ -457,6 +458,8 @@ func restart() -> void:
 	spot_spawner.restart()
 	gui.restart()
 	
+	music.play(0)
+	
 	waves_left = WAVES.duplicate(true)
 	_setup_wavelet(waves_left[0])
 		
@@ -469,6 +472,7 @@ func _on_game_over() -> void:
 
 func end_game():
 	timer.stop()	
+	music.stop()
 	get_tree().paused = true
 
 
