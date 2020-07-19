@@ -10,6 +10,7 @@ var current_target : Area2D
 
 onready var time_since_last_shoot: float = cooldown
 onready var detection : Area2D = $DetectionBox
+onready var shot_sound : AudioStreamPlayer2D = $ShotSound
 
 
 func _ready() -> void:
@@ -29,13 +30,15 @@ func _physics_process(delta: float):
 
 func _shoot_target() -> void:
 	sprite.play("shot")
-	
-	yield(sprite, "animation_finished")
+	shot_sound.play()
 	
 	var bullet = bullet_type.instance()
 	bullet.position.x = -32
 	bullet.direction = Vector2.LEFT
 	self.add_child(bullet)
+	
+	yield(sprite, "animation_finished")
+	
 	sprite.play("charge")
 	
 

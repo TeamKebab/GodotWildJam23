@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/entities/defenses/Cannon.gd" type="Script" id=1]
 [ext_resource path="res://src/components/DetectionBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/entities/defenses/Defense.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sfx/snot_cannon_shooting.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 18 )
@@ -18,12 +19,18 @@ hp = 5.0
 position = Vector2( 0, 4 )
 shape = SubResource( 1 )
 
+[node name="HP" parent="." index="3"]
+total = 2.0
+
 [node name="DetectionBox" parent="." index="4" instance=ExtResource( 2 )]
 collision_layer = 2
 
 [node name="CollisionShape2D" parent="DetectionBox" index="0"]
 position = Vector2( -224, -4 )
 shape = SubResource( 2 )
+
+[node name="ShotSound" type="AudioStreamPlayer2D" parent="." index="5"]
+stream = ExtResource( 4 )
 
 [editable path="HurtBox"]
 

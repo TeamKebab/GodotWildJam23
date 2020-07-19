@@ -11,6 +11,7 @@ var direction = Vector2.ONE
 
 
 onready var hitbox : Area2D = $HitBox
+onready var impact_sound : AudioStreamPlayer2D = $ImpactSound
 
 
 func _ready() -> void:
@@ -32,7 +33,14 @@ func _on_hitbox_area_entered(hurtbox: Area2D) -> void:
 		
 	_do_damage(virus)
 
-	# TODO play animation & wait for end
+	# TODO play animation 	
+	impact_sound.play()
+	
+	# TODO wait for animation end
+	hide()
+		
+	yield(impact_sound, "finished")
+	
 	queue_free()
 
 
