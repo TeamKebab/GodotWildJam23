@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://src/WaveSpawner.gd" type="Script" id=1]
 [ext_resource path="res://src/SpotSpawner.gd" type="Script" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://src/gui/GameOverPanel.tscn" type="PackedScene" id=19]
 [ext_resource path="res://src/gui/WinPanel.tscn" type="PackedScene" id=20]
 [ext_resource path="res://src/resources/SnotWallCard.tres" type="Texture" id=21]
+[ext_resource path="res://assets/ui/gui-menu-card.png" type="Texture" id=22]
 [ext_resource path="res://src/resources/NoseHairCard.tres" type="Texture" id=23]
 [ext_resource path="res://src/resources/StickyCannonCard.tres" type="Texture" id=25]
 [ext_resource path="res://src/resources/DoubleCannonCard.tres" type="Texture" id=27]
@@ -31,6 +32,14 @@
 [ext_resource path="res://assets/sfx/defense_buying.wav" type="AudioStream" id=35]
 [ext_resource path="res://assets/sfx/defense_placement.wav" type="AudioStream" id=36]
 [ext_resource path="res://src/resources/arcade-font-big.tres" type="DynamicFont" id=37]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 22 )
+region = Rect2( 185, 229, 46, 26 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 22 )
+region = Rect2( 139, 229, 46, 26 )
 
 [node name="Game" type="Node"]
 script = ExtResource( 16 )
@@ -130,6 +139,19 @@ margin_right = 1004.0
 margin_bottom = 25.0
 alignment = 2
 
+[node name="MultiplierBar" type="TextureProgress" parent="GUI/ToolBar/VBoxContainer/TopBar"]
+margin_left = 892.0
+margin_right = 936.0
+margin_bottom = 25.0
+min_value = 1.0
+max_value = 3.0
+value = 1.0
+texture_under = SubResource( 1 )
+texture_progress = SubResource( 2 )
+nine_patch_stretch = true
+stretch_margin_left = 22
+stretch_margin_right = 22
+
 [node name="AntibodiesPanel" type="PanelContainer" parent="GUI/ToolBar/VBoxContainer/TopBar"]
 margin_left = 940.0
 margin_right = 1004.0
@@ -140,17 +162,19 @@ size_flags_vertical = 0
 custom_styles/panel = ExtResource( 33 )
 
 [node name="MarginContainer" type="MarginContainer" parent="GUI/ToolBar/VBoxContainer/TopBar/AntibodiesPanel"]
-margin_right = 64.0
-margin_bottom = 25.0
+margin_left = 22.0
+margin_top = 8.0
+margin_right = 42.0
+margin_bottom = 17.0
 custom_constants/margin_right = -30
-custom_constants/margin_top = 0
-custom_constants/margin_left = 0
-custom_constants/margin_bottom = 0
+custom_constants/margin_top = -8
+custom_constants/margin_bottom = -8
 
 [node name="AntibodiesCounter" type="Label" parent="GUI/ToolBar/VBoxContainer/TopBar/AntibodiesPanel/MarginContainer"]
-margin_left = 40.0
-margin_right = 53.0
-margin_bottom = 25.0
+margin_left = 18.0
+margin_top = -8.0
+margin_right = 31.0
+margin_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -295,8 +319,10 @@ placeholder_type = ExtResource( 13 )
 
 [node name="Tutorial" type="Control" parent="GUI"]
 pause_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.00133594
+anchor_top = -0.00493455
+anchor_right = 1.00134
+anchor_bottom = 0.995065
 margin_left = 14.632
 margin_top = -29.1577
 margin_right = 14.632
@@ -307,8 +333,10 @@ __meta__ = {
 }
 
 [node name="GameOverPanel" parent="GUI" instance=ExtResource( 19 )]
+visible = false
 
 [node name="WinPanel" parent="GUI" instance=ExtResource( 20 )]
+visible = false
 margin_left = -125.0
 margin_top = -117.5
 margin_right = 125.0
