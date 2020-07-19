@@ -21,16 +21,7 @@ const WAVES = [
 		]
 	},
 	{
-		"wait": 5,
-		"times": 1,
-		"virus":[
-			{
-				"type": Virus.CUTEVID
-			}
-		]
-	},
-	{
-		"wait": 2,
+		"wait": 7,
 		"times": 1,
 		"virus":[
 			{
@@ -43,9 +34,14 @@ const WAVES = [
 		"times": 1,
 		"virus":[
 			{
-				"type": Virus.CUTEVID,
-				"row": 1
-			},
+				"type": Virus.CUTEVID
+			}
+		]
+	},
+	{
+		"wait": 10,
+		"times": 1,
+		"virus":[
 			{
 				"type": Virus.OGREVID,
 				"row": 2
@@ -67,14 +63,16 @@ const WAVES = [
 		]
 	},	
 	{
-		"wait": 12,
+		"wait": 8,
 		"times": 1,
 		"virus":[
 			{
 				"type": Virus.OGREVID,
+				"row": 2
 			},
 			{
 				"type": Virus.OGREVID,
+				"row": 5
 			}
 		]
 	},
@@ -85,7 +83,7 @@ const WAVES = [
 		"tooltip": preload("res://src/gui/tutorial/CuteVid.tscn")
 	},
 	{
-		"wait": 7,
+		"wait": 10,
 		"times": 1,
 		"virus":[
 			{
@@ -100,6 +98,33 @@ const WAVES = [
 		]
 	},
 	{
+		"wait": 15,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.CUTEVID
+			},
+			{
+				"type": Virus.CUTEVID
+			},
+			{
+				"type": Virus.CUTEVID
+			},
+			{
+				"type": Virus.CUTEVID
+			},
+			{
+				"type": Virus.CUTEVID
+			},
+			{
+				"type": Virus.CUTEVID
+			},
+			{
+				"type": Virus.CUTEVID
+			},
+		]
+	},
+	{
 		"wait": 1,
 		"spots" : {
 			"min_cooldown": 10,
@@ -111,20 +136,69 @@ const WAVES = [
 		"tooltip": preload("res://src/gui/tutorial/CuteVid.tscn")
 	},
 	{
-		"wait": 10,
+		"gui": Defense.HAIR
+	},
+	{
+		"wait": 5,
 		"times": 1,
 		"virus":[
 			{
-				"type": Virus.FLYVID
+				"type": Virus.OGREVID,
+				"row":4
 			},
-			{
-				"type": Virus.CUTEVID
-			},
-			{
-				"type": Virus.CUTEVID
-			}
 		]
 	},
+	{
+		"wait": 3,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.OGREVID,
+				"row":6
+			},
+		]
+	},
+	{
+		"wait": 3,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.OGREVID,
+				"row":2
+			},
+		]
+	},
+	{
+		"wait": 2,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.OGREVID,
+				"row":4
+			},
+		]
+	},
+	{
+		"wait": 2,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.OGREVID,
+				"row":6
+			},
+		]
+	},
+	{
+		"wait": 2,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.OGREVID,
+				"row":2
+			},
+		]
+	},
+	
 ]
 
 # WAVE REFERENCE

@@ -34,12 +34,13 @@ radius = 22.0
 script = ExtResource( 1 )
 max_hp = 3.0
 cooldown = 2.0
-velocity = 40
+velocity = 60
 sound_cooldown_min = 3
 sound_cooldown_max = 10
 
 [node name="Sprite" parent="." index="0"]
 frames = SubResource( 3 )
+frame = 1
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 4 )
