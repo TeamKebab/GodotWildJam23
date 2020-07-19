@@ -17,7 +17,10 @@ func _ready() -> void:
 
 
 func set_hp(new_hp) -> void:
-	if (new_hp != hp):
+	if hp <= 0:
+		return
+	
+	if new_hp != hp:
 		emit_signal("hp_changed", hp, new_hp)
 		
 	hp = new_hp
