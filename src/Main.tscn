@@ -135,22 +135,22 @@ margin_left = 940.0
 margin_right = 1004.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 64, 0 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
 custom_styles/panel = ExtResource( 33 )
 
 [node name="MarginContainer" type="MarginContainer" parent="GUI/ToolBar/VBoxContainer/TopBar/AntibodiesPanel"]
-margin_left = 21.0
-margin_top = 8.0
-margin_right = 43.0
-margin_bottom = 17.0
-custom_constants/margin_right = -10
-custom_constants/margin_top = -8
-custom_constants/margin_bottom = -8
+margin_right = 64.0
+margin_bottom = 25.0
+custom_constants/margin_right = -30
+custom_constants/margin_top = 0
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 0
 
 [node name="AntibodiesCounter" type="Label" parent="GUI/ToolBar/VBoxContainer/TopBar/AntibodiesPanel/MarginContainer"]
-margin_left = 9.0
-margin_top = -8.0
-margin_right = 22.0
-margin_bottom = 17.0
+margin_left = 40.0
+margin_right = 53.0
+margin_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -160,6 +160,7 @@ custom_colors/font_outline_modulate = Color( 0.133333, 0.12549, 0.203922, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "5"
 align = 2
+valign = 2
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -296,20 +297,18 @@ placeholder_type = ExtResource( 13 )
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = -32.0
-margin_right = 8.0
-margin_bottom = -32.0001
+margin_left = 14.632
+margin_top = -29.1577
+margin_right = 14.632
+margin_bottom = -29.1578
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="GameOverPanel" parent="GUI" instance=ExtResource( 19 )]
-visible = false
 
 [node name="WinPanel" parent="GUI" instance=ExtResource( 20 )]
-visible = false
 margin_left = -125.0
 margin_top = -117.5
 margin_right = 125.0
