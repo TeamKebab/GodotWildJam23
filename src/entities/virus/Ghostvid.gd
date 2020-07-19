@@ -14,6 +14,8 @@ onready var shape: CollisionShape2D = $CollisionShape2D
 
 
 func _ready():
+	virus_type = Player.Virus.GHOSTVID
+	
 	_set_revealed(false)
 	
 	detection.connect("area_entered", self, 

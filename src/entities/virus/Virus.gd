@@ -20,6 +20,8 @@ export var max_vertical_movement = 8
 
 var hp: float = max_hp setget set_hp
 
+var virus_type : int = Player.Virus.CUTEVID
+
 var affected_defenses: Array = []
 var time: float = 0
 var freq: float = freq_min

@@ -1,24 +1,7 @@
 extends Node
 
-enum Virus {
-	CUTEVID,
-	OGREVID,
-	GHOSTVID,
-	FIREVID,
-	FLYVID,
-	QUEENVID,
-}
-
-enum Defense {
-	SNOT_CANNON,
-	STICKY_CANNON,
-	SNOT_WALL,
-	HAIR,
-	IDENTIVID,
-	DOUBLE_CANNON,
-	CATAPULT
-}
-
+const Virus = Player.Virus
+const Defense = Player.Defense
 
 const WAVES = [
 	{
