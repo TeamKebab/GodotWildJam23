@@ -66,6 +66,9 @@ func _ready():
 
 
 func set_hp(new_hp) -> void:
+	if hp <= 0:
+		return
+	
 	hp = new_hp
 	hpbar.value = hp
 
