@@ -8,6 +8,7 @@
 [node name="StickyBullet" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 rotation_speed = 1
+duration = 1.0
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 3 )

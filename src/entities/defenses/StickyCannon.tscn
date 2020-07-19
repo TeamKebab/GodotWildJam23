@@ -79,6 +79,9 @@ frame = 0
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 shape = SubResource( 11 )
 
+[node name="HP" parent="." index="3"]
+total = 2.0
+
 [node name="CollisionShape2D" parent="DetectionBox" index="0"]
 shape = SubResource( 12 )
 

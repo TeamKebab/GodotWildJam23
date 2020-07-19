@@ -32,6 +32,9 @@ radius = 22.0
 
 [node name="Cutevid" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+max_hp = 3.0
+cooldown = 2.0
+velocity = 50
 sound_cooldown_min = 3
 sound_cooldown_max = 10
 
