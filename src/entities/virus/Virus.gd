@@ -34,6 +34,9 @@ onready var hpbar : MiniBar = $HP
 onready var timer : Timer = $Timer
 onready var sprite : AnimatedSprite = $Sprite
 
+onready var dying_sound : AudioStreamPlayer2D = $DyingSound
+onready var eating_sound : AudioStreamPlayer2D = $EatingSound
+
 
 func _ready():
 	hitbox.connect("area_entered", self, "_on_hitbox_area_entered")
@@ -100,21 +103,40 @@ func _on_hitbox_area_entered(hurtbox: Area2D) -> void:
 	if defense == null or not defense.has_method("set_hp"):
 		return
 
+	_start_targetting_defense(defense)
+
+
+func _on_hitbox_area_exited(hurtbox: Area2D) -> void:
+	var defense = hurtbox.owner
+	_stop_targetting_defense(defense)
+
+
+func _on_defense_destroyed(defense):
+	_stop_targetting_defense(defense)
+
+
+func _start_targetting_defense(defense):
 	if not defense in affected_defenses:
 		affected_defenses.append(defense)
+		defense.connect("destroyed", self, "_on_defense_destroyed")
 		
 	if timer.is_stopped():
 		_do_damage(defense)
 		timer.start(cooldown)
 	
-	
-func _on_hitbox_area_exited(hurtbox: Area2D) -> void:
-	var defense = hurtbox.owner
+	if not eating_sound.playing and not defense is Hair:
+		eating_sound.play()
 
+
+func _stop_targetting_defense(defense):
 	if defense in affected_defenses:
 		affected_defenses.erase(defense)
+		defense.disconnect("destroyed", self, "_on_defense_destroyed")
 	
-	
+	if affected_defenses.empty():
+		eating_sound.stop()
+
+
 func _on_timer_timeout() -> void:
 	var to_remove : Array = []
 	
@@ -143,6 +165,12 @@ func _die() -> void:
 	antibodies.global_position.y += randi() % 32 - 16
 	antibodies_container.add_child(antibodies)
 
+	dying_sound.play()
+	hide()
+	
+	
+	yield(dying_sound, "finished")
+	
 	# todo: use variable for $HurtBox
 	emit_signal("destroyed", $HurtBox)
 	queue_free()

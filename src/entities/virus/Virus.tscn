@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/entities/virus/Virus.gd" type="Script" id=1]
 [ext_resource path="res://src/components/HurtBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/components/HitBox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/components/MiniBar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/sprites/virus.png" type="Texture" id=5]
+[ext_resource path="res://assets/sfx/vids_eating.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/sfx/vids_death.wav" type="AudioStream" id=7]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 5 )
@@ -45,9 +47,16 @@ collision_mask = 0
 [node name="HP" parent="." instance=ExtResource( 4 )]
 position = Vector2( 0, 32 )
 half_width = 30
+total = 2.0
 value = 2.0
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="DyingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+
+[node name="EatingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
 
 [editable path="HurtBox"]
 

@@ -10,4 +10,4 @@ func _do_damage(defense):
 	elif defense is Hair:
 		defense.hp = 0
 	else:
-		defense.hp -= damage
+		._do_damage(defense)
