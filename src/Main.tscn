@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://src/WaveSpawner.gd" type="Script" id=1]
 [ext_resource path="res://src/SpotSpawner.gd" type="Script" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://src/Main.gd" type="Script" id=16]
 [ext_resource path="res://src/entities/defenses/HairPlaceholder.tscn" type="PackedScene" id=17]
 [ext_resource path="res://src/resources/SnotCanonCard.tres" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/queen-vid.png" type="Texture" id=19]
 [ext_resource path="res://src/resources/SnotWallCard.tres" type="Texture" id=21]
 [ext_resource path="res://src/resources/NoseHairCard.tres" type="Texture" id=23]
 [ext_resource path="res://src/resources/StickyCannonCard.tres" type="Texture" id=25]
@@ -31,6 +32,62 @@
 [ext_resource path="res://assets/sfx/defense_placement.wav" type="AudioStream" id=36]
 [ext_resource path="res://src/resources/arcade-font-big.tres" type="DynamicFont" id=37]
 [ext_resource path="res://src/resources/TooltipPanel.tres" type="StyleBox" id=38]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 19 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 19 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 19 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 19 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 19 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 19 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 19 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 19 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 19 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 19 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 19 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 19 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="Game" type="Node"]
 script = ExtResource( 16 )
@@ -306,15 +363,14 @@ __meta__ = {
 
 [node name="GameOverPanel" type="PanelContainer" parent="GUI"]
 pause_mode = 2
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -129.5
-margin_top = -101.5
+margin_top = -165.5
 margin_right = 129.5
-margin_bottom = 101.5
+margin_bottom = 165.5
 size_flags_horizontal = 4
 size_flags_vertical = 6
 custom_styles/panel = ExtResource( 38 )
@@ -326,24 +382,37 @@ __meta__ = {
 margin_left = 15.0
 margin_top = 15.0
 margin_right = 244.0
-margin_bottom = 188.0
+margin_bottom = 316.0
 custom_constants/margin_right = 20
-custom_constants/margin_top = 20
+custom_constants/margin_top = 10
 custom_constants/margin_left = 20
-custom_constants/margin_bottom = 20
+custom_constants/margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/GameOverPanel/MarginContainer"]
 margin_left = 20.0
-margin_top = 20.0
+margin_top = 10.0
 margin_right = 209.0
-margin_bottom = 153.0
+margin_bottom = 291.0
 rect_clip_content = true
 alignment = 2
 
-[node name="Label2" type="Label" parent="GUI/GameOverPanel/MarginContainer/VBoxContainer"]
-margin_top = 16.0
+[node name="MarginContainer" type="MarginContainer" parent="GUI/GameOverPanel/MarginContainer/VBoxContainer"]
 margin_right = 189.0
-margin_bottom = 53.0
+margin_bottom = 160.0
+custom_constants/margin_right = 180
+custom_constants/margin_top = 160
+custom_constants/margin_left = 0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="GUI/GameOverPanel/MarginContainer/VBoxContainer/MarginContainer"]
+position = Vector2( 96, 70 )
+frames = SubResource( 13 )
+frame = 1
+playing = true
+
+[node name="Label2" type="Label" parent="GUI/GameOverPanel/MarginContainer/VBoxContainer"]
+margin_top = 164.0
+margin_right = 189.0
+margin_bottom = 201.0
 custom_fonts/font = ExtResource( 34 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "So sorry, you have been infected"
@@ -351,9 +420,9 @@ align = 1
 autowrap = true
 
 [node name="Label" type="Label" parent="GUI/GameOverPanel/MarginContainer/VBoxContainer"]
-margin_top = 57.0
+margin_top = 205.0
 margin_right = 189.0
-margin_bottom = 82.0
+margin_bottom = 230.0
 custom_fonts/font = ExtResource( 37 )
 custom_colors/font_color = Color( 0.843137, 0.482353, 0.729412, 1 )
 text = "Game Over"
@@ -362,11 +431,13 @@ valign = 1
 autowrap = true
 
 [node name="RestartButton" type="Button" parent="GUI/GameOverPanel/MarginContainer/VBoxContainer"]
-margin_top = 86.0
+margin_top = 234.0
 margin_right = 189.0
-margin_bottom = 133.0
+margin_bottom = 281.0
 grow_horizontal = 0
 grow_vertical = 0
+custom_styles/hover = ExtResource( 38 )
+custom_styles/pressed = ExtResource( 38 )
 custom_styles/normal = ExtResource( 38 )
 custom_fonts/font = ExtResource( 34 )
 text = "Restart"
