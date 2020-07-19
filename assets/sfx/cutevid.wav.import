@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/cutevid.wav-4066710ff4a4417b6ce1a2fcead29fe7.sample"
+
+[deps]
+
+source_file="res://assets/sfx/cutevid.wav"
+dest_files=[ "res://.import/cutevid.wav-4066710ff4a4417b6ce1a2fcead29fe7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

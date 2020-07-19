@@ -45,7 +45,6 @@ func _set_text(value):
 
 
 func _on_Button_pressed():
-	ok_sound.stream.loop = false
 	ok_sound.play()
 	
 	yield(ok_sound, "finished")

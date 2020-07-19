@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/identivid-3000.wav-12600d83dfc10ed4583c555167fef928.sample"
+
+[deps]
+
+source_file="res://assets/sfx/identivid-3000.wav"
+dest_files=[ "res://.import/identivid-3000.wav-12600d83dfc10ed4583c555167fef928.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

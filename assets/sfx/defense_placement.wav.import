@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/defense_placement.wav-1b0953eea467bc98ed23f4e1a0612a4d.sample"
+
+[deps]
+
+source_file="res://assets/sfx/defense_placement.wav"
+dest_files=[ "res://.import/defense_placement.wav-1b0953eea467bc98ed23f4e1a0612a4d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

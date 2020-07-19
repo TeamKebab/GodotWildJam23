@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/resources/TooltipPanel.tres" type="StyleBox" id=1]
 [ext_resource path="res://src/gui/Tooltip.gd" type="Script" id=2]
-[ext_resource path="res://assets/sfx/tooltip_ok.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/sfx/tooltip_ok.wav" type="AudioStream" id=3]
 
 [node name="Tooltip" type="PanelContainer"]
 anchor_left = 0.5

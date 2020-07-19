@@ -56,7 +56,6 @@ func show_tooltip(Tooltip):
 
 
 func _on_BuyButton_pressed(button : BuyButton) -> void:
-	buy_sound.stream.loop = false
 	buy_sound.play()
 	buying_defense = button.placeholder
 	
@@ -79,7 +78,6 @@ func _on_Grid_mouse_input_cell(event, cell):
 			defense_container.add_child(defense)
 			buying_defense.hide()
 			buying_defense = null
-			place_sound.stream.loop = false
 			place_sound.play()
 	
 		else:

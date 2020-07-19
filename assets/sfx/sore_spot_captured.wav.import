@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sore_spot_captured.wav-9d390387a0c9f90cc973669a30638128.sample"
+
+[deps]
+
+source_file="res://assets/sfx/sore_spot_captured.wav"
+dest_files=[ "res://.import/sore_spot_captured.wav-9d390387a0c9f90cc973669a30638128.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

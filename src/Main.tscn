@@ -34,8 +34,8 @@
 [ext_resource path="res://src/entities/defenses/DoubleCannonPlaceholder.tscn" type="PackedScene" id=32]
 [ext_resource path="res://src/resources/CounterPanel.tres" type="StyleBox" id=33]
 [ext_resource path="res://src/resources/arcade-font.tres" type="DynamicFont" id=34]
-[ext_resource path="res://assets/sfx/defense_buying.ogg" type="AudioStream" id=35]
-[ext_resource path="res://assets/sfx/defense_placement.ogg" type="AudioStream" id=36]
+[ext_resource path="res://assets/sfx/defense_buying.wav" type="AudioStream" id=35]
+[ext_resource path="res://assets/sfx/defense_placement.wav" type="AudioStream" id=36]
 
 [node name="Game" type="Node"]
 script = ExtResource( 16 )

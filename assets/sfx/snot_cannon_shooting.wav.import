@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/snot_cannon_shooting.wav-055c883c42fac903f3033b24129a7c54.sample"
+
+[deps]
+
+source_file="res://assets/sfx/snot_cannon_shooting.wav"
+dest_files=[ "res://.import/snot_cannon_shooting.wav-055c883c42fac903f3033b24129a7c54.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ogrevid.wav-126bcf961426c3f1950a2e2937243f10.sample"
+
+[deps]
+
+source_file="res://assets/sfx/ogrevid.wav"
+dest_files=[ "res://.import/ogrevid.wav-126bcf961426c3f1950a2e2937243f10.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
