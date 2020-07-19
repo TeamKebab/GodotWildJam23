@@ -20,6 +20,7 @@ onready var grid : Grid = game.find_node("Grid")
 onready var defense_container : Node2D = game.find_node("Defenses")
 onready var button_container : Container = find_node("ButtonContainer")
 onready var game_over_panel : Control = find_node("GameOverPanel")
+onready var win_panel : Control = find_node("WinPanel")
 onready var tutorial: Control = find_node("Tutorial")
 onready var buy_sound : AudioStreamPlayer2D = $BuySound
 onready var place_sound : AudioStreamPlayer2D = $PlaceSound
@@ -62,6 +63,10 @@ func show_tooltip(Tooltip):
 	var tooltip = Tooltip.instance()
 	tutorial.add_child(tooltip)
 	get_tree().paused = true
+
+
+func win():
+	win_panel.show()
 
 
 func _on_BuyButton_pressed(button : BuyButton) -> void:

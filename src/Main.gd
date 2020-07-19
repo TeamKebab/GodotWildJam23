@@ -220,13 +220,18 @@ func restart() -> void:
 
 
 func _on_game_over() -> void:
+	end_game()
+
+
+func end_game():
 	timer.stop()	
 	get_tree().paused = true
 
 
 func _on_wave_destroyed() -> void:
 	if waves_left.empty():
-		Player.game_over()
+		end_game()
+		gui.win()
 
 
 func _on_Timer_timeout():
