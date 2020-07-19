@@ -46,8 +46,9 @@ func _set_text(value):
 
 func _on_Button_pressed():
 	ok_sound.play()
+	get_tree().set_deferred("paused", false)
+	hide()
 	
 	yield(ok_sound, "finished")
 	
 	queue_free()
-	get_tree().set_deferred("paused", false)
