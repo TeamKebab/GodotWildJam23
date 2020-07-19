@@ -1,48 +1,50 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/gui/Tooltip.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/sprites/cannon-animation.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/queen-vid.png" type="Texture" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
-region = Rect2( 448, 0, 64, 64 )
+region = Rect2( 192, 0, 192, 192 )
 
 [node name="Tooltip" instance=ExtResource( 1 )]
-margin_top = -132.5
-margin_bottom = -132.5
-texture = SubResource( 1 )
-text = "Place a snot cannon in the grid to shot at the virus"
+margin_top = -122.5
+margin_bottom = -122.5
 
 [node name="MarginContainer" parent="." index="1"]
-margin_bottom = 250.0
+margin_bottom = 376.0
 
 [node name="VBoxContainer" parent="MarginContainer" index="0"]
-margin_bottom = 230.0
+margin_bottom = 356.0
 
 [node name="TextureRect" parent="MarginContainer/VBoxContainer" index="0"]
-margin_left = 68.0
-margin_right = 132.0
-margin_bottom = 64.0
+margin_left = 4.0
+margin_right = 196.0
+margin_bottom = 192.0
 texture = SubResource( 1 )
 
 [node name="RichTextLabel" parent="MarginContainer/VBoxContainer" index="1"]
-margin_top = 68.0
-margin_bottom = 122.0
-bbcode_text = "Place a snot cannon in the grid to shot at the virus"
-text = "Place a snot cannon in the grid to shot at the virus"
+margin_top = 196.0
+margin_bottom = 268.0
+bbcode_text = "Defeat the boss!
+
+Make use of the couble cannons!"
+text = "Defeat the boss!
+
+Make use of the couble cannons!"
 
 [node name="Space1" parent="MarginContainer/VBoxContainer" index="2"]
-margin_top = 126.0
-margin_bottom = 136.0
+margin_top = 272.0
+margin_bottom = 282.0
 
 [node name="CheckBox" parent="MarginContainer/VBoxContainer" index="3"]
-margin_top = 140.0
-margin_bottom = 165.0
+margin_top = 286.0
+margin_bottom = 311.0
 
 [node name="Space2" parent="MarginContainer/VBoxContainer" index="4"]
-margin_top = 169.0
-margin_bottom = 174.0
+margin_top = 315.0
+margin_bottom = 320.0
 
 [node name="Button" parent="MarginContainer/VBoxContainer" index="5"]
-margin_top = 178.0
-margin_bottom = 225.0
+margin_top = 324.0
+margin_bottom = 351.0

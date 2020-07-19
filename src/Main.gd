@@ -6,7 +6,7 @@ const Defense = Player.Defense
 const WAVES = [
 	{
 		"wait": 0.1,
-		"tooltip": preload("res://src/gui/tutorial/CuteVid.tscn")
+		"tooltip": preload("res://src/gui/tutorial/Welcome.tscn")
 	},
 	{
 		"gui": Defense.SNOT_CANNON
@@ -50,7 +50,7 @@ const WAVES = [
 	},
 	{
 		"wait": 0.1,
-		"tooltip": preload("res://src/gui/tutorial/CuteVid.tscn")
+		"tooltip": preload("res://src/gui/tutorial/Ogrevid.tscn")
 	},
 	{
 		"gui": Defense.STICKY_CANNON
@@ -80,7 +80,7 @@ const WAVES = [
 		"gui": Defense.SNOT_WALL
 	},
 	{
-		"tooltip": preload("res://src/gui/tutorial/CuteVid.tscn")
+		"tooltip": preload("res://src/gui/tutorial/MoreOgrevid.tscn")
 	},
 	{
 		"wait": 10,
@@ -130,7 +130,7 @@ const WAVES = [
 		}
 	},
 	{
-		"tooltip": preload("res://src/gui/tutorial/CuteVid.tscn")
+		"tooltip": preload("res://src/gui/tutorial/SoreSpots.tscn")
 	},
 	{
 		"gui": Defense.HAIR
@@ -197,7 +197,7 @@ const WAVES = [
 	},
 	{
 		"wait": 20,
-		"tooltip": preload("res://src/gui/tutorial/CuteVid.tscn")
+		"tooltip": preload("res://src/gui/tutorial/Ghostvid.tscn")
 	},
 	{
 		"gui": Defense.IDENTIVID
@@ -266,7 +266,7 @@ const WAVES = [
 	},
 	{
 		"wait": 15,
-		"tooltip": preload("res://src/gui/tutorial/CuteVid.tscn")
+		"tooltip": preload("res://src/gui/tutorial/Firevid.tscn")
 	},
 	{
 		"wait": 2,
@@ -364,7 +364,7 @@ const WAVES = [
 	},
 	{
 		"wait": 20,
-		"tooltip": preload("res://src/gui/tutorial/CuteVid.tscn")
+		"tooltip": preload("res://src/gui/tutorial/Queenvid.tscn")
 	},
 	{
 		"gui": Defense.DOUBLE_CANNON
@@ -414,7 +414,7 @@ var wave_reference = [
 	# show a tooltip and pause
 	{
 		"wait": 0.1,# wait 0.1 seconds before showing the tooltip
-		"tooltip": preload("res://src/gui/tutorial/CuteVid.tscn")
+		"tooltip": preload("res://src/gui/tutorial/Welcome.tscn")
 	},
 	# start spawning spots
 	{

@@ -1,22 +1,10 @@
 tool
 extends PanelContainer
 
-
-export(Texture) var texture setget _set_texture
-export(String) var text setget _set_text
-
-
-onready var image : TextureRect = find_node("TextureRect")
-onready var label : RichTextLabel = find_node("RichTextLabel")
 onready var ok_sound : AudioStreamPlayer = $AudioStreamPlayer
 
 
-func _ready() -> void:	
-	if image != null:
-		image.texture = texture
-	if label != null:
-		label.bbcode_text = text
-		
+func _ready() -> void:			
 	anchor_left = 0.5
 	anchor_right = 0.5
 	anchor_top = 0.5
@@ -30,18 +18,6 @@ func _ready() -> void:
 
 func _on_CheckBox_toggled(button_pressed):
 	Player.show_tips = not button_pressed
-
-
-func _set_texture(value):
-	texture = value
-	if image != null:
-		image.texture = texture
-
-
-func _set_text(value):
-	text = value
-	if label != null:
-		label.bbcode_text = text
 
 
 func _on_Button_pressed():

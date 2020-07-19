@@ -8,16 +8,14 @@ atlas = ExtResource( 2 )
 region = Rect2( 0, 1, 66, 58 )
 
 [node name="Tooltip" instance=ExtResource( 1 )]
-margin_top = -167.5
-margin_bottom = -167.5
-texture = SubResource( 1 )
-text = "Is it getting hot in here?Beware of the firevids, blazing beings that burn stuff!"
+margin_top = -137.5
+margin_bottom = -137.5
 
 [node name="MarginContainer" parent="." index="1"]
-margin_bottom = 262.0
+margin_bottom = 296.0
 
 [node name="VBoxContainer" parent="MarginContainer" index="0"]
-margin_bottom = 242.0
+margin_bottom = 276.0
 
 [node name="TextureRect" parent="MarginContainer/VBoxContainer" index="0"]
 margin_left = 67.0
@@ -27,22 +25,30 @@ texture = SubResource( 1 )
 
 [node name="RichTextLabel" parent="MarginContainer/VBoxContainer" index="1"]
 margin_top = 62.0
-margin_bottom = 154.0
-bbcode_text = "Is it getting hot in here?Beware of the firevids, blazing beings that burn stuff!"
-text = "Is it getting hot in here?Beware of the firevids, blazing beings that burn stuff!"
+margin_bottom = 188.0
+bbcode_text = "Is it getting hot in here?
+
+Beware of the firevids
+
+Blazing beings that burn stuff!"
+text = "Is it getting hot in here?
+
+Beware of the firevids
+
+Blazing beings that burn stuff!"
 
 [node name="Space1" parent="MarginContainer/VBoxContainer" index="2"]
-margin_top = 158.0
-margin_bottom = 168.0
+margin_top = 192.0
+margin_bottom = 202.0
 
 [node name="CheckBox" parent="MarginContainer/VBoxContainer" index="3"]
-margin_top = 172.0
-margin_bottom = 197.0
+margin_top = 206.0
+margin_bottom = 231.0
 
 [node name="Space2" parent="MarginContainer/VBoxContainer" index="4"]
-margin_top = 201.0
-margin_bottom = 206.0
+margin_top = 235.0
+margin_bottom = 240.0
 
 [node name="Button" parent="MarginContainer/VBoxContainer" index="5"]
-margin_top = 210.0
-margin_bottom = 237.0
+margin_top = 244.0
+margin_bottom = 271.0
