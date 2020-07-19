@@ -119,9 +119,6 @@ const WAVES = [
 			{
 				"type": Virus.CUTEVID
 			},
-			{
-				"type": Virus.CUTEVID
-			},
 		]
 	},
 	{

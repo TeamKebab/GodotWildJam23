@@ -57,7 +57,7 @@ extents = Vector2( 768, 15 )
 
 [node name="DoubleCannon" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-hp = 2.0
+hp = 3.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )

@@ -24,7 +24,7 @@ enum Defense {
 	CATAPULT
 }
 
-const ANTIBODIES = 16
+const ANTIBODIES = 20
 const MULTIPLIER = 1
 const MULTIPLIER_FACTOR = 1.5
 const MAX_MULTIPLIER = 3

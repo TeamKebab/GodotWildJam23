@@ -88,14 +88,14 @@ script = ExtResource( 3 )
 max_hp = 3.0
 antibodies_amount = 2
 damage = 2.0
-cooldown = 1.0
-velocity = 60
+cooldown = 2.0
+velocity = 50
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( -5, -10 )
 frames = SubResource( 14 )
 animation = "visible"
-frame = 1
+frame = 8
 
 [node name="CollisionShape2D" parent="." index="1"]
 visible = false
