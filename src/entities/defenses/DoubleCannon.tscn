@@ -53,7 +53,7 @@ animations = [ {
 extents = Vector2( 32, 18 )
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 224, 15 )
+extents = Vector2( 768, 15 )
 
 [node name="DoubleCannon" instance=ExtResource( 1 )]
 script = ExtResource( 2 )

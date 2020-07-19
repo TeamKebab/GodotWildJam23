@@ -268,7 +268,7 @@ const WAVES = [
 		]
 	},
 	{
-		"wait": 20,
+		"wait": 15,
 		"tooltip": preload("res://src/gui/tutorial/CuteVid.tscn")
 	},
 	{
@@ -368,6 +368,18 @@ const WAVES = [
 	{
 		"wait": 20,
 		"tooltip": preload("res://src/gui/tutorial/CuteVid.tscn")
+	},
+	{
+		"gui": Defense.DOUBLE_CANNON
+	},
+	{
+		"wait": 3,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.QUEENVID
+			},
+		]
 	},
 ]
 
