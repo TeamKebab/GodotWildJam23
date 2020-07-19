@@ -72,18 +72,19 @@ radius = 62.0
 
 [node name="Queenvid" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-max_hp = 50.0
+max_hp = 100.0
 antibodies_amount = 10
-damage = 3.0
-cooldown = 2.0
+damage = 5.0
+cooldown = 1.0
 velocity = 5
 max_vertical_movement = 0
 sound_cooldown_max = 10
+cooldown_min = 2.0
 cooldown_max = 5.0
 
 [node name="Sprite" parent="." index="0"]
 frames = SubResource( 13 )
-frame = 1
+frame = 7
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 0, 5 )
