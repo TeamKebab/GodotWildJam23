@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://src/WaveSpawner.gd" type="Script" id=1]
 [ext_resource path="res://src/SpotSpawner.gd" type="Script" id=2]
@@ -32,11 +32,12 @@
 [ext_resource path="res://src/resources/CatapultCardDisabled.tres" type="Texture" id=30]
 [ext_resource path="res://src/resources/CatapultCard.tres" type="Texture" id=31]
 [ext_resource path="res://src/entities/defenses/DoubleCannonPlaceholder.tscn" type="PackedScene" id=32]
-[ext_resource path="res://assets/sfx/defense_buying.ogg" type="AudioStream" id=33]
-[ext_resource path="res://assets/sfx/defense_placement.ogg" type="AudioStream" id=34]
 
 [node name="Game" type="Node"]
 script = ExtResource( 16 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 512, 288 )
@@ -44,14 +45,14 @@ stream = ExtResource( 15 )
 autoplay = true
 area_mask = 0
 
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color( 0.6, 0.290196, 0.27451, 1 )
+color = Color( 0.568627, 0.345098, 0.45098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Grid" parent="." instance=ExtResource( 4 )]
 position = Vector2( 128, 64 )
@@ -97,17 +98,13 @@ __meta__ = {
 [node name="GUI" type="Node" parent="."]
 script = ExtResource( 6 )
 
-[node name="BuySound" type="AudioStreamPlayer2D" parent="GUI"]
-stream = ExtResource( 33 )
-
-[node name="PlaceSound" type="AudioStreamPlayer2D" parent="GUI"]
-stream = ExtResource( 34 )
-
 [node name="ToolBar" type="MarginContainer" parent="GUI"]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -124.0
+margin_left = -154.0
+margin_top = 20.0
+margin_right = -54.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -122,17 +119,17 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/ToolBar"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 114.0
-margin_bottom = 566.0
+margin_right = 89.0
+margin_bottom = 546.0
 
 [node name="AntibodiesCounter" type="Label" parent="GUI/ToolBar/VBoxContainer"]
-margin_right = 104.0
+margin_right = 79.0
 margin_bottom = 14.0
 script = ExtResource( 5 )
 
 [node name="ButtonContainer" type="VBoxContainer" parent="GUI/ToolBar/VBoxContainer"]
-margin_top = 18.0
-margin_right = 104.0
+margin_top = 23.0
+margin_right = 79.0
 margin_bottom = 496.0
 size_flags_horizontal = 3
 custom_constants/separation = 5
@@ -142,9 +139,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 20.0
+margin_left = 7.0
 margin_top = 0.0
-margin_right = 84.0
+margin_right = 71.0
 margin_bottom = 64.0
 texture_normal = ExtResource( 18 )
 texture_pressed = ExtResource( 18 )
@@ -158,9 +155,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 20.0
+margin_left = 7.0
 margin_top = 69.0
-margin_right = 84.0
+margin_right = 71.0
 margin_bottom = 133.0
 texture_normal = ExtResource( 25 )
 texture_pressed = ExtResource( 25 )
@@ -174,9 +171,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 20.0
+margin_left = 7.0
 margin_top = 138.0
-margin_right = 84.0
+margin_right = 71.0
 margin_bottom = 202.0
 texture_normal = ExtResource( 21 )
 texture_pressed = ExtResource( 21 )
@@ -190,9 +187,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 20.0
+margin_left = 7.0
 margin_top = 207.0
-margin_right = 84.0
+margin_right = 71.0
 margin_bottom = 271.0
 texture_normal = ExtResource( 23 )
 texture_pressed = ExtResource( 23 )
@@ -206,9 +203,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 20.0
+margin_left = 7.0
 margin_top = 276.0
-margin_right = 84.0
+margin_right = 71.0
 margin_bottom = 340.0
 texture_normal = ExtResource( 29 )
 texture_pressed = ExtResource( 29 )
@@ -222,9 +219,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 20.0
+margin_left = 7.0
 margin_top = 345.0
-margin_right = 84.0
+margin_right = 71.0
 margin_bottom = 409.0
 texture_normal = ExtResource( 27 )
 texture_pressed = ExtResource( 27 )
@@ -238,9 +235,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 20.0
+margin_left = 7.0
 margin_top = 414.0
-margin_right = 84.0
+margin_right = 71.0
 margin_bottom = 478.0
 texture_normal = ExtResource( 31 )
 texture_pressed = ExtResource( 31 )
