@@ -66,7 +66,7 @@ extents = Vector2( 768, 15 )
 
 [node name="StickyCannon" instance=ExtResource( 1 )]
 bullet_type = ExtResource( 2 )
-cooldown = 2.0
+cooldown = 3.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )
