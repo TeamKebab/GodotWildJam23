@@ -38,6 +38,7 @@ script = ExtResource( 16 )
 one_shot = true
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
+pause_mode = 2
 position = Vector2( 512, 288 )
 stream = ExtResource( 15 )
 autoplay = true
