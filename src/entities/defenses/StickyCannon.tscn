@@ -62,7 +62,7 @@ animations = [ {
 extents = Vector2( 32, 18 )
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 224, 15 )
+extents = Vector2( 768, 15 )
 
 [node name="StickyCannon" instance=ExtResource( 1 )]
 bullet_type = ExtResource( 2 )
@@ -78,9 +78,6 @@ frame = 0
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 shape = SubResource( 11 )
-
-[node name="HP" parent="." index="3"]
-total = 2.0
 
 [node name="CollisionShape2D" parent="DetectionBox" index="0"]
 shape = SubResource( 12 )

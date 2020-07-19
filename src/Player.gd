@@ -22,7 +22,7 @@ enum Defense {
 	CATAPULT
 }
 
-const ANTIBODIES = 4
+const ANTIBODIES = 10
 const MULTIPLIER = 1
 
 var antibodies: int = ANTIBODIES setget set_antibodies

@@ -25,11 +25,6 @@ _global_script_classes=[ {
 "path": "res://src/entities/defenses/Defense.gd"
 }, {
 "base": "Virus",
-"class": "Firevid",
-"language": "GDScript",
-"path": "res://src/entities/virus/Firevid.gd"
-}, {
-"base": "Virus",
 "class": "Flyvid",
 "language": "GDScript",
 "path": "res://src/entities/virus/Flyvid.gd"
@@ -78,7 +73,6 @@ _global_script_class_icons={
 "BuyButton": "",
 "Cannon": "",
 "Defense": "",
-"Firevid": "",
 "Flyvid": "",
 "Ghostvid": "",
 "Grid": "",
