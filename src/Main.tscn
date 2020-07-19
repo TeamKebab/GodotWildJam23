@@ -43,7 +43,7 @@ script = ExtResource( 16 )
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 512, 288 )
 stream = ExtResource( 15 )
 autoplay = true
