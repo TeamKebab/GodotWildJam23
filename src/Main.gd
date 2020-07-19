@@ -196,7 +196,7 @@ const WAVES = [
 		]
 	},
 	{
-		"wait": 20,
+		"wait": 15,
 		"tooltip": preload("res://src/gui/tutorial/Ghostvid.tscn")
 	},
 	{
@@ -265,7 +265,7 @@ const WAVES = [
 		]
 	},
 	{
-		"wait": 15,
+		"wait": 10,
 		"tooltip": preload("res://src/gui/tutorial/Firevid.tscn")
 	},
 	{
@@ -363,7 +363,7 @@ const WAVES = [
 		]
 	},
 	{
-		"wait": 20,
+		"wait": 15,
 		"tooltip": preload("res://src/gui/tutorial/Queenvid.tscn")
 	},
 	{

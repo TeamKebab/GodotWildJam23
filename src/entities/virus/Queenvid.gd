@@ -7,10 +7,10 @@ const Virus = Player.Virus
 
 const virus_probabilities = {
 	Virus.CUTEVID: 20,
-	Virus.OGREVID: 10,
-	Virus.GHOSTVID: 5,
-	Virus.FIREVID: 1,
-	Virus.FLYVID: 1
+	Virus.OGREVID: 20,
+	Virus.GHOSTVID: 20,
+	Virus.FIREVID: 20,
+	Virus.FLYVID: 20
 }
 
 export var cooldown_min: float = 3
