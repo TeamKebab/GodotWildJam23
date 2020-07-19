@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://src/WaveSpawner.gd" type="Script" id=1]
 [ext_resource path="res://src/SpotSpawner.gd" type="Script" id=2]
@@ -32,6 +32,11 @@
 [ext_resource path="res://src/resources/CatapultCardDisabled.tres" type="Texture" id=30]
 [ext_resource path="res://src/resources/CatapultCard.tres" type="Texture" id=31]
 [ext_resource path="res://src/entities/defenses/DoubleCannonPlaceholder.tscn" type="PackedScene" id=32]
+[ext_resource path="res://assets/ui/gui-menu-card.png" type="Texture" id=33]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 33 )
+region = Rect2( 138, 198, 48, 18 )
 
 [node name="Game" type="Node"]
 script = ExtResource( 16 )
@@ -122,15 +127,37 @@ margin_top = 10.0
 margin_right = 89.0
 margin_bottom = 546.0
 
-[node name="AntibodiesCounter" type="Label" parent="GUI/ToolBar/VBoxContainer"]
-margin_right = 79.0
-margin_bottom = 14.0
+[node name="TextureRect" type="TextureRect" parent="GUI/ToolBar/VBoxContainer"]
+margin_left = 6.0
+margin_right = 50.0
+margin_bottom = 18.0
+texture = SubResource( 1 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="AntibodiesCounter" type="Label" parent="GUI/ToolBar/VBoxContainer/TextureRect"]
+margin_top = 7.0
+margin_right = 42.0
+margin_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0.133333, 0.12549, 0.203922, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "5"
+align = 2
 script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ButtonContainer" type="VBoxContainer" parent="GUI/ToolBar/VBoxContainer"]
-margin_top = 23.0
+margin_top = 22.0
 margin_right = 79.0
-margin_bottom = 496.0
+margin_bottom = 500.0
 size_flags_horizontal = 3
 custom_constants/separation = 5
 
