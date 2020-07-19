@@ -88,8 +88,8 @@ script = ExtResource( 3 )
 max_hp = 3.0
 antibodies_amount = 2
 damage = 2.0
-cooldown = 2.0
-velocity = 50
+cooldown = 1.5
+velocity = 60
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( -5, -10 )

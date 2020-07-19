@@ -124,8 +124,8 @@ const WAVES = [
 	{
 		"wait": 1,
 		"spots" : {
-			"min_cooldown": 30,
-			"max_cooldown": 60,
+			"min_cooldown": 15,
+			"max_cooldown": 25,
 			"heal_time": 10
 		}
 	},
@@ -374,7 +374,8 @@ const WAVES = [
 		"times": 1,
 		"virus":[
 			{
-				"type": Virus.QUEENVID
+				"type": Virus.QUEENVID,
+				"row":3
 			},
 		]
 	},
