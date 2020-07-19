@@ -15,6 +15,12 @@ func _ready():
 func _on_Player_antibodies_changed(antibodies: int) -> void:
 	_check_price(antibodies)
 
-
 func _check_price(antibodies: int) -> void:
-	disabled = antibodies < placeholder.price
+	var disable = antibodies < placeholder.price
+	
+	if disable:
+		modulate = Color(0.5,0.5,0.5)
+	else:
+		modulate = Color(1,1,1)
+		
+	disabled = disable

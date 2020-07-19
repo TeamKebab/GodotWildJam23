@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://src/WaveSpawner.gd" type="Script" id=1]
 [ext_resource path="res://src/SpotSpawner.gd" type="Script" id=2]
@@ -18,18 +18,11 @@
 [ext_resource path="res://src/Main.gd" type="Script" id=16]
 [ext_resource path="res://src/entities/defenses/HairPlaceholder.tscn" type="PackedScene" id=17]
 [ext_resource path="res://src/resources/SnotCanonCard.tres" type="Texture" id=18]
-[ext_resource path="res://src/resources/SnotCanonCardDisabled.tres" type="Texture" id=19]
-[ext_resource path="res://src/resources/SnotWallCardDisabled.tres" type="Texture" id=20]
 [ext_resource path="res://src/resources/SnotWallCard.tres" type="Texture" id=21]
-[ext_resource path="res://src/resources/NoseHairCardDisabled.tres" type="Texture" id=22]
 [ext_resource path="res://src/resources/NoseHairCard.tres" type="Texture" id=23]
-[ext_resource path="res://src/resources/StickyCannonCardDisabled.tres" type="Texture" id=24]
 [ext_resource path="res://src/resources/StickyCannonCard.tres" type="Texture" id=25]
-[ext_resource path="res://src/resources/DoubleCannonCardDisabled.tres" type="Texture" id=26]
 [ext_resource path="res://src/resources/DoubleCannonCard.tres" type="Texture" id=27]
-[ext_resource path="res://src/resources/IdentividCardDisabled.tres" type="Texture" id=28]
 [ext_resource path="res://src/resources/IdentividCard.tres" type="Texture" id=29]
-[ext_resource path="res://src/resources/CatapultCardDisabled.tres" type="Texture" id=30]
 [ext_resource path="res://src/resources/CatapultCard.tres" type="Texture" id=31]
 [ext_resource path="res://src/entities/defenses/DoubleCannonPlaceholder.tscn" type="PackedScene" id=32]
 [ext_resource path="res://src/resources/CounterPanel.tres" type="StyleBox" id=33]
@@ -192,7 +185,7 @@ margin_bottom = 64.0
 texture_normal = ExtResource( 18 )
 texture_pressed = ExtResource( 18 )
 texture_hover = ExtResource( 18 )
-texture_disabled = ExtResource( 19 )
+texture_disabled = ExtResource( 18 )
 texture_focused = ExtResource( 18 )
 placeholder_type = ExtResource( 8 )
 
@@ -209,7 +202,7 @@ margin_bottom = 64.0
 texture_normal = ExtResource( 25 )
 texture_pressed = ExtResource( 25 )
 texture_hover = ExtResource( 25 )
-texture_disabled = ExtResource( 24 )
+texture_disabled = ExtResource( 25 )
 texture_focused = ExtResource( 25 )
 placeholder_type = ExtResource( 3 )
 
@@ -226,7 +219,7 @@ margin_bottom = 64.0
 texture_normal = ExtResource( 21 )
 texture_pressed = ExtResource( 21 )
 texture_hover = ExtResource( 21 )
-texture_disabled = ExtResource( 20 )
+texture_disabled = ExtResource( 21 )
 texture_focused = ExtResource( 21 )
 placeholder_type = ExtResource( 14 )
 
@@ -243,7 +236,7 @@ margin_bottom = 64.0
 texture_normal = ExtResource( 23 )
 texture_pressed = ExtResource( 23 )
 texture_hover = ExtResource( 23 )
-texture_disabled = ExtResource( 22 )
+texture_disabled = ExtResource( 23 )
 texture_focused = ExtResource( 23 )
 placeholder_type = ExtResource( 17 )
 
@@ -260,7 +253,7 @@ margin_bottom = 64.0
 texture_normal = ExtResource( 29 )
 texture_pressed = ExtResource( 29 )
 texture_hover = ExtResource( 29 )
-texture_disabled = ExtResource( 28 )
+texture_disabled = ExtResource( 29 )
 texture_focused = ExtResource( 29 )
 placeholder_type = ExtResource( 13 )
 
@@ -277,7 +270,7 @@ margin_bottom = 64.0
 texture_normal = ExtResource( 27 )
 texture_pressed = ExtResource( 27 )
 texture_hover = ExtResource( 27 )
-texture_disabled = ExtResource( 26 )
+texture_disabled = ExtResource( 27 )
 texture_focused = ExtResource( 27 )
 placeholder_type = ExtResource( 32 )
 
@@ -294,7 +287,7 @@ margin_bottom = 64.0
 texture_normal = ExtResource( 31 )
 texture_pressed = ExtResource( 31 )
 texture_hover = ExtResource( 31 )
-texture_disabled = ExtResource( 30 )
+texture_disabled = ExtResource( 31 )
 texture_focused = ExtResource( 31 )
 placeholder_type = ExtResource( 13 )
 

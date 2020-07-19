@@ -35,6 +35,7 @@ onready var buttons = {
 	Defense.CATAPULT : button_container.find_node("CatapultButton"),
 }
 
+
 func _ready() -> void:
 	Player.connect("game_over", self, "_on_game_over")
 	for node in button_container.get_children():
@@ -57,7 +58,10 @@ func show_tooltip(Tooltip):
 
 func _on_BuyButton_pressed(button : BuyButton) -> void:
 	buy_sound.play()
-	buying_defense = button.placeholder
+	if buying_defense == button.placeholder:
+		buying_defense = null
+	else:
+		buying_defense = button.placeholder
 	
 	
 func _on_Grid_mouse_entered_cell(cell):
