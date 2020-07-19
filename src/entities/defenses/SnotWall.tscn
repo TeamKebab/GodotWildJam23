@@ -52,7 +52,7 @@ extents = Vector2( 22, 18 )
 
 [node name="SnotWall" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-hp = 5.0
+hp = 10.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2( 4, 4 )
@@ -67,5 +67,8 @@ frame = 7
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 position = Vector2( 4, 4 )
 shape = SubResource( 11 )
+
+[node name="HP" parent="." index="3"]
+total = 2.0
 
 [editable path="HurtBox"]

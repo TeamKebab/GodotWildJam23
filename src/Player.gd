@@ -3,7 +3,7 @@ extends Node
 signal game_over
 signal antibodies_changed(new_antibodies)
 
-const ANTIBODIES = 5
+const ANTIBODIES = 4
 const MULTIPLIER = 1
 
 var antibodies: int = ANTIBODIES setget set_antibodies

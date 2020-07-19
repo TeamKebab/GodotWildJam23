@@ -31,6 +31,9 @@ radius = 22.0
 
 [node name="Cutevid" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+max_hp = 3.0
+cooldown = 2.0
+velocity = 50
 
 [node name="Sprite" parent="." index="0"]
 frames = SubResource( 3 )

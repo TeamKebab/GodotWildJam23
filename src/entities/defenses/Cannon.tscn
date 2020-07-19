@@ -8,7 +8,7 @@
 extents = Vector2( 32, 18 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 224, 15 )
+extents = Vector2( 768, 15 )
 
 [node name="Cannon" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
@@ -18,11 +18,14 @@ hp = 5.0
 position = Vector2( 0, 4 )
 shape = SubResource( 1 )
 
+[node name="HP" parent="." index="3"]
+total = 2.0
+
 [node name="DetectionBox" parent="." index="4" instance=ExtResource( 2 )]
 collision_layer = 2
 
 [node name="CollisionShape2D" parent="DetectionBox" index="0"]
-position = Vector2( -224, -4 )
+position = Vector2( -768, -4 )
 shape = SubResource( 2 )
 
 [editable path="HurtBox"]
