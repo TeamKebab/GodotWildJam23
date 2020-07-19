@@ -70,12 +70,13 @@ radius = 20.0
 [node name="Firevid" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 max_hp = 4.0
-antibodies_amount = 3
+antibodies_amount = 2
 max_vertical_movement = 0
+wall_damage = 5.0
 
 [node name="Sprite" parent="." index="0"]
 frames = SubResource( 12 )
-frame = 4
+frame = 1
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 2, 0 )

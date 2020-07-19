@@ -127,8 +127,8 @@ const WAVES = [
 	{
 		"wait": 1,
 		"spots" : {
-			"min_cooldown": 10,
-			"max_cooldown": 20,
+			"min_cooldown": 30,
+			"max_cooldown": 60,
 			"heal_time": 10
 		}
 	},
@@ -198,7 +198,177 @@ const WAVES = [
 			},
 		]
 	},
-	
+	{
+		"wait": 20,
+		"tooltip": preload("res://src/gui/tutorial/CuteVid.tscn")
+	},
+	{
+		"gui": Defense.IDENTIVID
+	},
+	{
+		"wait": 3,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.CUTEVID
+			},
+			{
+				"type": Virus.CUTEVID
+			},
+			{
+				"type": Virus.CUTEVID
+			},
+		]
+	},
+	{
+		"wait": 5,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.GHOSTVID,
+				"row":3
+			},
+		]
+	},
+	{
+		"wait": 10,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.GHOSTVID
+			},
+		]
+	},	{
+		"wait": 2,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.OGREVID,
+				"row":4
+			},
+		]
+	},
+	{
+		"wait": 7,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.GHOSTVID
+			},
+		]
+	},
+	{
+		"wait": 2,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.OGREVID,
+				"row":6
+			},
+		]
+	},
+	{
+		"wait": 20,
+		"tooltip": preload("res://src/gui/tutorial/CuteVid.tscn")
+	},
+	{
+		"wait": 2,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.OGREVID,
+				"row":2
+			},
+		]
+	},
+	{
+		"wait": 2,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.FIREVID,
+				"row":3
+			},
+		]
+	},
+	{
+		"wait": 3,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.GHOSTVID,
+				"row":6
+			},
+		]
+	},
+	{
+		"wait": 5,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.FIREVID,
+				"row":3
+			},
+		]
+	},
+	{
+		"wait": 2,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.OGREVID
+			},
+		]
+	},
+	{
+		"wait": 5,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.FIREVID
+			},
+		]
+	},
+	{
+		"wait": 2,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.OGREVID
+			},
+		]
+	},
+	{
+		"wait": 5,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.FIREVID
+			},
+		]
+	},
+	{
+		"wait": 3,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.GHOSTVID
+			},
+		]
+	},
+		{
+		"wait": 2,
+		"times": 1,
+		"virus":[
+			{
+				"type": Virus.OGREVID
+			},
+		]
+	},
+	{
+		"wait": 20,
+		"tooltip": preload("res://src/gui/tutorial/CuteVid.tscn")
+	},
 ]
 
 # WAVE REFERENCE

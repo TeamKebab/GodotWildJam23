@@ -8,13 +8,13 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 26 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ SubResource( 6 ) ],
+"frames": [ SubResource( 2 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -28,6 +28,7 @@ extents = Vector2( 192, 128 )
 
 [node name="Identivid" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
+hp = 5.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2( -5, -5 )
@@ -42,6 +43,9 @@ frame = 0
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 position = Vector2( -5, -5 )
 shape = SubResource( 4 )
+
+[node name="HP" parent="." index="3"]
+total = 2.0
 
 [node name="DetectionBox" parent="." index="4" instance=ExtResource( 3 )]
 collision_layer = 32

@@ -85,7 +85,11 @@ radius = 24.0
 
 [node name="Ghostvid" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-cooldown = 2.0
+max_hp = 3.0
+antibodies_amount = 2
+damage = 2.0
+cooldown = 1.0
+velocity = 60
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( -5, -10 )
