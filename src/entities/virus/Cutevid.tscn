@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/entities/virus/Cutevid.gd" type="Script" id=1]
 [ext_resource path="res://src/entities/virus/Virus.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/sprites/virus.png" type="Texture" id=3]
+[ext_resource path="res://assets/sfx/cutevid.wav" type="AudioStream" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -31,9 +32,12 @@ radius = 22.0
 
 [node name="Cutevid" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+sound_cooldown_min = 3
+sound_cooldown_max = 10
 
 [node name="Sprite" parent="." index="0"]
 frames = SubResource( 3 )
+frame = 1
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 4 )
@@ -43,6 +47,10 @@ shape = SubResource( 5 )
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 shape = SubResource( 6 )
+
+[node name="EnteringSound" parent="." index="8"]
+stream = ExtResource( 4 )
+attenuation = 0.176777
 
 [editable path="HurtBox"]
 

@@ -17,6 +17,9 @@ export var freq_min = 5
 export var freq_max = 20
 export var max_vertical_movement = 8
 
+export var sound_cooldown_min = 1
+export var sound_cooldown_max = 3
+
 
 var hp: float = max_hp setget set_hp
 
@@ -38,12 +41,16 @@ onready var sprite : AnimatedSprite = $Sprite
 
 onready var dying_sound : AudioStreamPlayer2D = $DyingSound
 onready var eating_sound : AudioStreamPlayer2D = $EatingSound
+onready var random_sound : AudioStreamPlayer2D = $RandomSound
+onready var entering_sound : AudioStreamPlayer2D = $EnteringSound
+onready var random_sound_timer : Timer = $RandomSoundTimer
 
 
 func _ready():
 	hitbox.connect("area_entered", self, "_on_hitbox_area_entered")
 	hitbox.connect("area_exited", self, "_on_hitbox_area_exited")
 	timer.connect("timeout", self, "_on_timer_timeout")
+	random_sound_timer.connect("timeout", self, "_on_random_sound_timer_timeout")
 	
 	freq = Player.rng.randf_range(freq_min, freq_max)
 	base_y = position.y
@@ -53,8 +60,11 @@ func _ready():
 	
 	hpbar.total = max_hp
 	hpbar.value = hp
-
 	
+	entering_sound.play()
+	_setup_sound_timer()
+
+
 func set_hp(new_hp) -> void:
 	hp = new_hp
 	hpbar.value = hp
@@ -97,8 +107,18 @@ func _move(delta):
 	if global_position.x > win_x:
 		Player.game_over()
 		queue_free()
-		
-		
+
+
+func _setup_sound_timer():
+	var time = Player.rng.randf_range(sound_cooldown_min, sound_cooldown_max)
+	random_sound_timer.start(time)
+
+
+func _on_random_sound_timer_timeout():
+	random_sound.play()
+	_setup_sound_timer()
+
+
 func _on_hitbox_area_entered(hurtbox: Area2D) -> void:
 	var defense = hurtbox.owner
 
