@@ -4,6 +4,10 @@ extends Node2D
 const SoreSpot = preload("res://src/entities/SoreSpot.tscn")
 
 
+const MIN_X = 3
+const MAX_X = 7
+
+
 export var min_seconds : int = 10
 export var max_seconds : int = 20
 export var heal_time : int = 30
@@ -63,7 +67,7 @@ func _spawn() -> void:
 	var placed = false
 
 	for i in range(3):
-		var cell = Vector2(randi() % int(grid.size.x), randi() % int(grid.size.y))
+		var cell = _get_random_cell()
 		var position = grid.grid_to_world(cell)
 		spot.global_position = position
 
@@ -80,3 +84,10 @@ func _spawn() -> void:
 func _can_place(spot : Area2D) -> bool:	
 	var overlapping_bodies = spot.get_overlapping_bodies()
 	return overlapping_bodies.empty()
+
+
+func _get_random_cell():
+	var x = randi() % (MAX_X - MIN_X) + MIN_X
+	var y = randi() % int(grid.size.y)
+	
+	return Vector2(x,y)
