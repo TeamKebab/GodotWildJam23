@@ -8,8 +8,8 @@ atlas = ExtResource( 2 )
 region = Rect2( 192, 0, 192, 192 )
 
 [node name="Tooltip" instance=ExtResource( 1 )]
-margin_top = -122.5
-margin_bottom = -122.5
+margin_top = -195.5
+margin_bottom = -195.5
 
 [node name="MarginContainer" parent="." index="1"]
 margin_bottom = 376.0
@@ -28,10 +28,10 @@ margin_top = 196.0
 margin_bottom = 268.0
 bbcode_text = "Defeat the boss!
 
-Make use of the couble cannons!"
+Make use of the double cannons!"
 text = "Defeat the boss!
 
-Make use of the couble cannons!"
+Make use of the double cannons!"
 
 [node name="Space1" parent="MarginContainer/VBoxContainer" index="2"]
 margin_top = 272.0

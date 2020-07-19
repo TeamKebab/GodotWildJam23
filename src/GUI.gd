@@ -21,6 +21,7 @@ onready var defense_container : Node2D = game.find_node("Defenses")
 onready var button_container : Container = find_node("ButtonContainer")
 onready var game_over_panel : Control = find_node("GameOverPanel")
 onready var win_panel : Control = find_node("WinPanel")
+onready var start_panel : Control = find_node("StartPanel")
 onready var tutorial: Control = find_node("Tutorial")
 onready var buy_sound : AudioStreamPlayer2D = $BuySound
 onready var place_sound : AudioStreamPlayer2D = $PlaceSound
@@ -46,10 +47,13 @@ func _ready() -> void:
 		if node is BuyButton:
 			node.connect("pressed", self, "_on_BuyButton_pressed", [node])
 
-	multiplier_bar.max_value = Player.MAX_MULTIPLIER
+	get_tree().paused = true
 
 
 func restart():
+	for node in tutorial.get_children():
+		node.queue_free()
+	
 	buying_defense = null
 	
 	for node in button_container.get_children():
@@ -122,3 +126,8 @@ func _on_game_over() -> void:
 
 func _on_multiplier_changed(new_multiplier) -> void:
 	multiplier_bar.value = new_multiplier
+
+
+func _on_StartButton_pressed():	
+	start_panel.hide()
+	game.restart()	

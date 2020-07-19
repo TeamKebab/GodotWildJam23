@@ -92,8 +92,9 @@ _global_script_class_icons={
 
 [application]
 
-config/name="WildJam23"
+config/name="Nose Defense"
 run/main_scene="res://src/Main.tscn"
+boot_splash/image="res://assets/ui/start-screen.png"
 config/icon="res://icon.png"
 
 [autoload]

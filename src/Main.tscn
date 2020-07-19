@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://src/WaveSpawner.gd" type="Script" id=1]
 [ext_resource path="res://src/SpotSpawner.gd" type="Script" id=2]
@@ -23,8 +23,11 @@
 [ext_resource path="res://src/resources/SnotWallCard.tres" type="Texture" id=21]
 [ext_resource path="res://assets/ui/gui-menu-card.png" type="Texture" id=22]
 [ext_resource path="res://src/resources/NoseHairCard.tres" type="Texture" id=23]
+[ext_resource path="res://src/resources/Button.tres" type="StyleBox" id=24]
 [ext_resource path="res://src/resources/StickyCannonCard.tres" type="Texture" id=25]
+[ext_resource path="res://src/resources/TooltipPanel.tres" type="StyleBox" id=26]
 [ext_resource path="res://src/resources/DoubleCannonCard.tres" type="Texture" id=27]
+[ext_resource path="res://assets/ui/start-screen.png" type="Texture" id=28]
 [ext_resource path="res://src/resources/IdentividCard.tres" type="Texture" id=29]
 [ext_resource path="res://src/resources/CatapultCard.tres" type="Texture" id=31]
 [ext_resource path="res://src/entities/defenses/DoubleCannonPlaceholder.tscn" type="PackedScene" id=32]
@@ -40,6 +43,9 @@ region = Rect2( 185, 229, 46, 26 )
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 22 )
 region = Rect2( 139, 229, 46, 26 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 28 )
 
 [node name="Game" type="Node"]
 script = ExtResource( 16 )
@@ -341,6 +347,37 @@ margin_left = -125.0
 margin_top = -117.5
 margin_right = 125.0
 margin_bottom = 117.5
+
+[node name="StartPanel" type="PanelContainer" parent="GUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI/StartPanel"]
+margin_right = 1024.0
+margin_bottom = 576.0
+custom_constants/margin_left = 340
+
+[node name="StartButton" type="Button" parent="GUI/StartPanel/MarginContainer"]
+pause_mode = 2
+margin_left = 582.0
+margin_top = 270.0
+margin_right = 782.0
+margin_bottom = 305.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_styles/hover = ExtResource( 24 )
+custom_styles/pressed = ExtResource( 26 )
+custom_styles/normal = ExtResource( 24 )
+custom_fonts/font = ExtResource( 37 )
+text = "Start"
 [connection signal="mouse_entered_cell" from="Grid" to="GUI" method="_on_Grid_mouse_entered_cell"]
 [connection signal="mouse_exited_cell" from="Grid" to="GUI" method="_on_Grid_mouse_exited_cell"]
 [connection signal="mouse_input_cell" from="Grid" to="GUI" method="_on_Grid_mouse_input_cell"]
+[connection signal="pressed" from="GUI/StartPanel/MarginContainer/StartButton" to="GUI" method="_on_StartButton_pressed"]
