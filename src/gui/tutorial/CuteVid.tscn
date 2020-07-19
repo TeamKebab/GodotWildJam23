@@ -8,14 +8,16 @@ atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 64, 64 )
 
 [node name="Tooltip" instance=ExtResource( 1 )]
+margin_top = -123.5
+margin_bottom = -123.5
 texture = SubResource( 1 )
 text = "CuteVids want to infect your body!"
 
-[node name="MarginContainer" parent="." index="0"]
-margin_bottom = 190.0
+[node name="MarginContainer" parent="." index="1"]
+margin_bottom = 232.0
 
 [node name="VBoxContainer" parent="MarginContainer" index="0"]
-margin_bottom = 178.0
+margin_bottom = 212.0
 
 [node name="TextureRect" parent="MarginContainer/VBoxContainer" index="0"]
 margin_left = 68.0
@@ -25,22 +27,22 @@ texture = SubResource( 1 )
 
 [node name="RichTextLabel" parent="MarginContainer/VBoxContainer" index="1"]
 margin_top = 68.0
-margin_bottom = 98.0
+margin_bottom = 104.0
 bbcode_text = "CuteVids want to infect your body!"
 text = "CuteVids want to infect your body!"
 
 [node name="Space1" parent="MarginContainer/VBoxContainer" index="2"]
-margin_top = 102.0
-margin_bottom = 112.0
+margin_top = 108.0
+margin_bottom = 118.0
 
 [node name="CheckBox" parent="MarginContainer/VBoxContainer" index="3"]
-margin_top = 116.0
-margin_bottom = 140.0
+margin_top = 122.0
+margin_bottom = 147.0
 
 [node name="Space2" parent="MarginContainer/VBoxContainer" index="4"]
-margin_top = 144.0
-margin_bottom = 149.0
+margin_top = 151.0
+margin_bottom = 156.0
 
 [node name="Button" parent="MarginContainer/VBoxContainer" index="5"]
-margin_top = 153.0
-margin_bottom = 173.0
+margin_top = 160.0
+margin_bottom = 207.0

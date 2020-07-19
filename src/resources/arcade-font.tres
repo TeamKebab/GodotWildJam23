@@ -3,4 +3,5 @@
 [ext_resource path="res://fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=1]
 
 [resource]
+extra_spacing_space = 5
 font_data = ExtResource( 1 )
