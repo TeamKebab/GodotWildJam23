@@ -28,8 +28,6 @@ func _on_virus_destroyed(hurtbox) -> void:
 	
 	remove_child(virus)
 	
-	emit_signal("virus_destroyed", virus)
-	
 	var children_left = get_child_count()
 	
 	if children_left == 0:

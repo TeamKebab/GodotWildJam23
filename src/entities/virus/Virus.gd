@@ -181,11 +181,7 @@ func _do_damage(defense):
 
 
 func _die() -> void:
-	var antibodies = AntiBodies.instance()
-	antibodies.amount = antibodies_amount
-	antibodies.global_position = global_position
-	antibodies.global_position.y += randi() % 32 - 16
-	antibodies_container.add_child(antibodies)
+	call_deferred("_drop_antibodies")
 
 	dying_sound.play()
 	hide()
@@ -197,3 +193,10 @@ func _die() -> void:
 	emit_signal("destroyed", $HurtBox)
 	queue_free()
 
+
+func _drop_antibodies():
+	var antibodies = AntiBodies.instance()
+	antibodies_container.add_child(antibodies)
+	antibodies.amount = antibodies_amount
+	antibodies.global_position = global_position
+	antibodies.global_position.y += randi() % 32 - 16
