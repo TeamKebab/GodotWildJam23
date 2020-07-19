@@ -3,15 +3,7 @@ extends Node2D
 
 signal virus_destroyed
 
-
-enum Virus {
-	CUTEVID,
-	OGREVID,
-	GHOSTVID,
-	FIREVID,
-	FLYVID,
-	QUEENVID,
-}
+const Virus = Player.Virus
 
 const VIRUS = {
 	Virus.CUTEVID : preload("res://src/entities/virus/Cutevid.tscn"),	

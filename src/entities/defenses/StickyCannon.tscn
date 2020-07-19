@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/entities/defenses/Cannon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/entities/defenses/StickyBullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/sprites/cannon-sticky-animation.png" type="Texture" id=3]
+[ext_resource path="res://assets/sfx/us_snot_cannon_shooting.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30, 30 )
@@ -83,6 +84,9 @@ total = 2.0
 
 [node name="CollisionShape2D" parent="DetectionBox" index="0"]
 shape = SubResource( 12 )
+
+[node name="ShotSound" parent="." index="5"]
+stream = ExtResource( 4 )
 
 [editable path="HurtBox"]
 

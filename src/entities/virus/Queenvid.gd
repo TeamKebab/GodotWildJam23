@@ -2,14 +2,8 @@ extends Virus
 class_name Queenvid
 
 
-enum Virus {
-	CUTEVID,
-	OGREVID,
-	GHOSTVID,
-	FIREVID,
-	FLYVID,
-	QUEENVID,
-}
+const Virus = Player.Virus
+
 
 const virus_probabilities = {
 	Virus.CUTEVID: 20,
@@ -29,6 +23,8 @@ onready var spawn_timer = $SpawnTimer
 
 
 func _ready():
+	virus_type = Virus.QUEENVID
+	
 	spawn_timer.connect("timeout", self, "_on_SpawnTimer_timeout")
 	_setup_spawn_timer()
 

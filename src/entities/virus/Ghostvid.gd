@@ -11,9 +11,12 @@ var identivids = []
 onready var detection : Area2D = $DetectionBox
 onready var hurtbox: Area2D = $HurtBox
 onready var shape: CollisionShape2D = $CollisionShape2D
+onready var detected_sound : AudioStreamPlayer2D = $DetectedSound
 
 
 func _ready():
+	virus_type = Player.Virus.GHOSTVID
+	
 	_set_revealed(false)
 	
 	detection.connect("area_entered", self, 
@@ -58,6 +61,7 @@ func _set_revealed(value) -> void:
 	hitbox.set_disabled(not revealed)
 		
 	if revealed:
+		detected_sound.play()
 		sprite.play("visible")
 		emit_signal("revealed", hurtbox)
 	else:

@@ -3,6 +3,25 @@ extends Node
 signal game_over
 signal antibodies_changed(new_antibodies)
 
+enum Virus {
+	CUTEVID,
+	OGREVID,
+	GHOSTVID,
+	FIREVID,
+	FLYVID,
+	QUEENVID,
+}
+
+enum Defense {
+	SNOT_CANNON,
+	STICKY_CANNON,
+	SNOT_WALL,
+	HAIR,
+	IDENTIVID,
+	DOUBLE_CANNON,
+	CATAPULT
+}
+
 const ANTIBODIES = 4
 const MULTIPLIER = 1
 
