@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/gui/Tooltip.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/cannon-animation.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 448, 0, 64, 64 )
+
+[node name="Tooltip" instance=ExtResource( 1 )]
+margin_top = -167.5
+margin_bottom = -167.5
+texture = SubResource( 1 )
+text = "If you feel the presence of a ghostvid, place an IDENTIVID-3000 to be able to hit them.Be careful, cause its radius isn't that great...SPOOKY!"
+
+[node name="MarginContainer" parent="." index="1"]
+margin_bottom = 320.0
+
+[node name="VBoxContainer" parent="MarginContainer" index="0"]
+margin_bottom = 300.0
+
+[node name="TextureRect" parent="MarginContainer/VBoxContainer" index="0"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+texture = SubResource( 1 )
+
+[node name="RichTextLabel" parent="MarginContainer/VBoxContainer" index="1"]
+margin_top = 68.0
+margin_bottom = 212.0
+bbcode_text = "If you feel the presence of a ghostvid, place an IDENTIVID-3000 to be able to hit them.Be careful, cause its radius isn't that great...SPOOKY!"
+text = "If you feel the presence of a ghostvid, place an IDENTIVID-3000 to be able to hit them.Be careful, cause its radius isn't that great...SPOOKY!"
+
+[node name="Space1" parent="MarginContainer/VBoxContainer" index="2"]
+margin_top = 216.0
+margin_bottom = 226.0
+
+[node name="CheckBox" parent="MarginContainer/VBoxContainer" index="3"]
+margin_top = 230.0
+margin_bottom = 255.0
+
+[node name="Space2" parent="MarginContainer/VBoxContainer" index="4"]
+margin_top = 259.0
+margin_bottom = 264.0
+
+[node name="Button" parent="MarginContainer/VBoxContainer" index="5"]
+margin_top = 268.0
+margin_bottom = 295.0
